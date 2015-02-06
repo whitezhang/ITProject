@@ -1,0 +1,22 @@
+{% extends 'searchtool/base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <img src="{% static 'images/test.png' %}" alt="test"/>
+    <form id="login" method="post" action="/searchtool/index/">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50" />
+        Password: <input type="password" name="password" value="" size="50" />
+        <input type="submit" name="login" value="Login" />
+        <input type="submit" name="register" value="Register" />        <!-- use JavaScript to replace-->
+    </form>
+
+    <form id="search" method="post" action="/searchtool/searchbook/">
+        {% csrf_token %}
+        <input type="text" name="query" value="Search From Here" size="50" />
+        <input type="submit" name="search" value="Go" />
+    </form>
+
+{% endblock %}
+
