@@ -2,21 +2,28 @@
 
 {% load staticfiles %}
 
+<!-- head -->
 {% block head %}
-    <img src="{% static 'images/test.png' %}" alt="test"/>
+
+{% endblock %}
+
+<!-- headline -->
+{% block headline %}
+    <img src="{% static 'images/logo.png' %}" alt="test"/>
     <form id="login" method="post" action="/searchtool/index/">
         {% csrf_token %}
         Username: <input type="text" name="username" value="" size="50" />
         Password: <input type="password" name="password" value="" size="50" />
         <input type="submit" name="login" value="Login" />
-        <input type="submit" name="register" value="Register" />        <!-- use JavaScript to replace-->
     </form>
+
+    <input type="button" name="register" value="Register" onclick="register()"/>        <!-- use JavaScript to replace-->
 
     <form id="search" method="post" action="/searchtool/searchbook/">
         {% csrf_token %}
-        <input type="text" name="query" value="Search From Here" size="50" />
+        <input type="text" name="query" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
         <input type="submit" name="search" value="Go" />
     </form>
-
 {% endblock %}
+
 
