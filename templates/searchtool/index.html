@@ -19,11 +19,24 @@
 
     <input type="button" name="register" value="Register" onclick="register()"/>        <!-- use JavaScript to replace-->
 
-    <form id="search" method="post" action="/searchtool/searchbook/">
+    <form id="gsearch" method="post" action="/searchtool/searchbook/">
         {% csrf_token %}
-        <input type="text" name="query" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
-        <input type="submit" name="search" value="Go" />
+        <input type="text" name="query" value="Search By Google" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
+        <input type="submit" name="Gsearch" value="Go" />
     </form>
+{% endblock %}
+
+{% block guideline %}
+    <a href="/searchtool/alltopics">All Topics</a>
+    <a href="/searchtool/mytopics">My Topics</a>
+    <form id="hsearch" method="post" action="/searchtool/searchfromDB">
+        {% csrf_token %}
+        <input type="text" name="find" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
+        <input type="submit" name="Hsearch" value="Go" />
+    </form>
+{% endblock %}
+
+{% block topic_list %}
 {% endblock %}
 
 
