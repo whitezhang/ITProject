@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title> Searching From Here </title>
     <img src="{% static 'images/logo.png' %}" alt="test"/>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <!-- Google Search API TODO -->
     <script type="text/javascript" src="{% static 'js/googlesearch.js' %}"></script>
@@ -13,57 +19,23 @@
             type="text/javascript"></script>
     <script type="text/javascript">
         google.load("search", "1", {"language" : "en"});
-
-        // Call this function when the page has been loaded
-        function initialize() {
-            var searchControl = new google.search.SearchControl();
-		    // site restricted web search
-		    /*
-		    var siteSearch = new google.search.WebSearch();
-		    siteSearch.setUserDefinedLabel("jquery4u.com");
-		    siteSearch.setUserDefinedClassSuffix("siteSearch");
-		    siteSearch.setSiteRestriction("jquery4u.com");
-		    searchControl.addSearcher(siteSearch);
-		    */
-
-		    // Search API Topics
-            //searchControl.addSearcher(new google.search.WebSearch());
-            //searchControl.addSearcher(new google.search.NewsSearch());
-		    //searchControl.addSearcher(new google.search.BlogSearch());
-		    //searchControl.addSearcher(new google.search.ImageSearch());
-	    	searchControl.addSearcher(new google.search.BookSearch());
-		    //searchControl.addSearcher(new google.search.VideoSearch());
-            // others
-	    	//searchControl.addSearcher(new google.search.LocalSearch());
-	    	//searchControl.addSearcher(new google.search.PatentSearch());
-
-		    // create a drawOptions object
-	    	var drawOptions = new google.search.DrawOptions();
-	    	// tell the searcher to draw itself in tabbed mode
-	    	drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_TABBED);
-	    	searchControl.draw(document.getElementById("searchcontrol"), drawOptions);
-        }
         google.setOnLoadCallback(initialize);
     </script>
 
-    <style type="text/css">
-        /* the width of the controls (keep same as gsc-results for flush look) */
-        #searchcontrol { width:600px; }
-        .gsc-control { width:600px; }
-        /* the width of the search results box; no height value = nice auto look */
-        .gsc-results { width:600px; }
-        /* the width of the search input */
-        .gsc-input { width:20px; }
-        /* hide "powered by google" (optional) */
-        .gsc-branding { display:none; }
-        .gs-title a { color:orange; font-weight:bold; }
-        #searchcontrol a { color:orange; }
-    </style>
+    <link href="{% static 'css/template.css' %}" rel="stylesheet" type="text/css">
 
     <!-- template -->
     {% block head %}{% endblock %}
 </head>
+
 <body>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Login and Logout -->
 <div>
     {% if user.is_authenticated %}

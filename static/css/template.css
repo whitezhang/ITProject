@@ -1,0 +1,11 @@
+/* the width of the controls (keep same as gsc-results for flush look) */
+#searchcontrol { width:600px; }
+.gsc-control { width:600px; }
+/* the width of the search results box; no height value = nice auto look */
+.gsc-results { width:600px; }
+/* the width of the search input */
+.gsc-input { width:20px; }
+/* hide "powered by google" (optional) */
+.gsc-branding { display:none; }
+.gs-title a { color:orange; font-weight:bold; }
+#searchcontrol a { color:red; }
