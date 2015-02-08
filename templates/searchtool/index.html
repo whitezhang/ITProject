@@ -9,16 +9,6 @@
 
 <!-- headline -->
 {% block headline %}
-    <img src="{% static 'images/logo.png' %}" alt="test"/>
-    <form id="login" method="post" action="/searchtool/index/">
-        {% csrf_token %}
-        Username: <input type="text" name="username" value="" size="50" />
-        Password: <input type="password" name="password" value="" size="50" />
-        <input type="submit" name="login" value="Login" />
-    </form>
-
-    <input type="button" name="register" value="Register" onclick="register()"/>        <!-- use JavaScript to replace-->
-
     <form id="gsearch" method="post" action="/searchtool/searchbook/">
         {% csrf_token %}
         <input type="text" name="query" value="Search By Google" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
@@ -26,9 +16,13 @@
     </form>
 {% endblock %}
 
+<!-- guideline -->
 {% block guideline %}
     <a href="/searchtool/alltopics">All Topics</a>
-    <a href="/searchtool/mytopics">My Topics</a>
+    {% if user.is_authenticated %}
+        <a href="/searchtool/mytopics">My Topics</a>
+    {% endif %}
+
     <form id="hsearch" method="post" action="/searchtool/searchfromDB">
         {% csrf_token %}
         <input type="text" name="find" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
@@ -36,6 +30,7 @@
     </form>
 {% endblock %}
 
+<!-- topic_list -->
 {% block topic_list %}
 {% endblock %}
 
