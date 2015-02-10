@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 # User
-class User(models.Model):
+class UserProfile(models.Model):
     username = models.CharField(max_length=32, unique=True)
     password = models.CharField(max_length=32)
 
@@ -14,7 +14,7 @@ class User(models.Model):
 class History(models.Model):
     query = models.CharField(max_length=512)        # same query can do recommendation
     date = models.DateField()
-    user = models.ForeignKey(User, blank=True, null=True)
+    user = models.ForeignKey(UserProfile, blank=True, null=True)
 
     def __unicode__(self):
         return self.query
@@ -23,7 +23,7 @@ class History(models.Model):
 class Topic(models.Model):
     topic = models.CharField(max_length=32)
     date = models.DateField()
-    user = models.ForeignKey(User, blank=True, null=True)
+    user = models.ForeignKey(UserProfile, blank=True, null=True)
 
     def __unicode__(self):
         return self.topic

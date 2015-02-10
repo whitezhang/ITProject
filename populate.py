@@ -6,14 +6,14 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'searchWeb.settings')
 import django
 django.setup()
 
-from searchtool.models import User
+from searchtool.models import UserProfile
 
 def populate():
     addUser("Wyatt", "123456")
 
 
 def addUser(username, password):
-    u = User.objects.get_or_create(username=username,password=password)[0]
+    u = UserProfile.objects.get_or_create(username=username,password=password)[0]
     return u
 
 if __name__ == '__main__':

@@ -4,12 +4,11 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title> Searching From Here </title>
-    <img src="{% static 'images/logo.png' %}" alt="test"/>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <!-- Google Search API TODO -->
@@ -24,35 +23,44 @@
 
     <link href="{% static 'css/template.css' %}" rel="stylesheet" type="text/css">
 
+    <!-- Login and Logout -->
+    <div>
+        <img src="{% static 'images/logo.png' %}" alt="test"/>
+
+        <div>
+            {% if user.is_authenticated %}
+            <p> Hello {{user.username}} </p>
+            <a href="/searchtool/logout/">Logout</a>
+            {% else %}
+            <form id="login" method="post" action="/searchtool/index/">
+                {% csrf_token %}
+                Username: <input type="text" name="username" value="" size="25"/>
+                Password: <input type="password" name="password" value="" size="25"/>
+                <input type="submit" name="login" value="Login"/>
+            </form>
+                <input type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
+
+            <!-- use JavaScript to replace-->
+            {% endif%}
+        </div>
+
+        <!-- search tool -->
+        <div id="searchcontrol"></div>
+    </div>
+
     <!-- template -->
     {% block head %}{% endblock %}
 </head>
 
 <body>
+
 <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-<!-- Login and Logout -->
-<div>
-    {% if user.is_authenticated %}
-    <a href="/searchtool/logout/">Logout</a>
-    {% else %}
-    <form id="login" method="post" action="/searchtool/index/">
-        {% csrf_token %}
-        Username: <input type="text" name="username" value="" size="50"/>
-        Password: <input type="password" name="password" value="" size="50"/>
-        <input type="submit" name="login" value="Login"/>
-    </form>
-
-    <input type="button" name="register" value="Register" onclick="register()"/> <!-- use JavaScript to replace-->
-    {% endif%}
-</div>
-<!-- search tool -->
-<div id="searchcontrol"></div>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 <!-- template -->
 <div>
@@ -64,5 +72,6 @@
 <div>
     {% block topic_list %}{% endblock %}
 </div>
+
 </body>
 </html>
