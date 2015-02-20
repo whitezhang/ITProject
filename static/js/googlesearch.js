@@ -1,4 +1,5 @@
-// Call this function when the page has been loaded
+//@Function: Google Search API
+//@ Parameter: NULL
 function initialize() {
     var searchControl = new google.search.SearchControl();
 
@@ -12,8 +13,8 @@ function initialize() {
     */
 
     // Search API Topics
-    //searchControl.addSearcher(new google.search.WebSearch());
-    //searchControl.addSearcher(new google.search.NewsSearch());
+//    searchControl.addSearcher(new google.search.WebSearch());
+//    searchControl.addSearcher(new google.search.NewsSearch());
     //searchControl.addSearcher(new google.search.BlogSearch());
     //searchControl.addSearcher(new google.search.ImageSearch());
     searchControl.addSearcher(new google.search.BookSearch());
@@ -26,5 +27,7 @@ function initialize() {
     var drawOptions = new google.search.DrawOptions();
     // tell the searcher to draw itself in tabbed mode
     drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_TABBED);
-    searchControl.draw(document.getElementById("searchcontrol"), drawOptions);
+    searchControl.draw(document.getElementById("search-control"), drawOptions);
+
 }
+

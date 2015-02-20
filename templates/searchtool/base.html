@@ -30,7 +30,7 @@
         <div>
             {% if user.is_authenticated %}
             <p> Hello {{user.username}} </p>
-            <input type="button" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'" />
+            <input type="button" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'"/>
             <a href="/searchtool/logout/">Logout</a>
             {% else %}
             <form id="login" method="post" action="/searchtool/index/">
@@ -39,14 +39,27 @@
                 Password: <input type="password" name="password" value="" size="25"/>
                 <input type="submit" name="login" value="Login"/>
             </form>
-                <input type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
+            <input type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
 
             <!-- use JavaScript to replace-->
             {% endif%}
         </div>
 
         <!-- search tool -->
-        <div id="searchcontrol"></div>
+        <!-- search tabs -->
+        <!--<div id="searchcontrol"></div>-->
+        <div>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="/searchtool/index/"> Home </a></li>
+                <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
+                {% if user.is_authenticated %}
+                <li role="presentation"><a href="/searchtool/mytopics/"> My Topics </a></li>
+                {% endif %}
+                <!--<li role="presentation"><a href="#"> Search </a></li>-->
+            </ul>
+            <div id="search-control"></div>
+        </div>
+
     </div>
 
     <!-- template -->
@@ -71,7 +84,7 @@
     {% block guideline %}{% endblock %}
 </div>
 <div>
-    {% block topic_list %}{% endblock %}
+    {% block main_content %}{% endblock %}
 </div>
 
 </body>
