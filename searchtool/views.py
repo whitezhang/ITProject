@@ -43,6 +43,9 @@ def register(request):
             'searchtool/register.html',
             {'user_form': user_form, 'registered': registered} )
 
+def profile(request):
+    return render(request, 'searchtool/profile.html')
+
 # Logout
 def logoutRequest(request):
     logout(request)

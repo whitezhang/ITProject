@@ -30,6 +30,7 @@
         <div>
             {% if user.is_authenticated %}
             <p> Hello {{user.username}} </p>
+            <input type="button" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'" />
             <a href="/searchtool/logout/">Logout</a>
             {% else %}
             <form id="login" method="post" action="/searchtool/index/">
