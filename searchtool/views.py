@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from searchtool.forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
-from searchtool.forms import UserProfile
 from searchtool.forms import UserForm
 
 # This is homepage
@@ -24,6 +22,8 @@ def index(request):
     else:
         return render(request, 'searchtool/index.html', {})
 
+# Register
+# user UserForm to register
 def register(request):
     registered = False
     if request.method == 'POST':
