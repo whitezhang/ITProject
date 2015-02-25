@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('searchtool', '0003_book_bid'),
+        ('searchtool', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='bid',
-            field=models.CharField(unique=True, max_length=128),
+            model_name='query',
+            name='user',
+            field=models.ForeignKey(to='searchtool.UserProfile'),
             preserve_default=True,
         ),
     ]

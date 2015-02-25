@@ -1,6 +1,6 @@
 /*
-	Masonry Template 
-
+	From Masonry
+	Searching Result Template
 */
 
 @font-face {
@@ -196,7 +196,7 @@ body {
 }
 
 .post-masonry .post-thumb .post-hover a {
-    color: #000 !important;
+    color: #888 !important;
 }
 
 .post-masonry .post-thumb .post-hover i {
@@ -229,4 +229,12 @@ body {
     top: 0;
     visibility: visible;
     opacity: 1;
+}
+
+.linkButton {
+     background: none;
+     border: none;
+     color: #0066ff;
+     text-decoration: underline;
+     cursor: pointer;
 }

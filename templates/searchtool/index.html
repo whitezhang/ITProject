@@ -43,8 +43,25 @@
                     {% for book in book_list %}
                     <div class="post-masonry col-md-4 col-sm-6">
                         <div class="post-thumb">
-                            <img src="http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api">
-                            <div class="title-over">{{ book.title }}</div>
+                            <img src="{{ book.image }}"/>
+                            <div class="title-over">
+                                <h4>{{ book.title }}</h4>
+                            </div>
+                            <div class="post-hover text-center">
+                                <div class="inside">
+                                    <i class="fa fa-plus"></i>
+                                    <form id="webReaderLink" method="post" action="/searchtool/goto/">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="queryid" value="{{ queryid }}"/>
+                                        <input type="hidden" name="book" value="{{ book }}"/>
+                                        <input type="hidden" name="readerLink" value="{{ book.webReaderLink }}"/>
+                                        <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
+                                    </form>
+                                    <span>{{ book.authors }}</span>
+                                    <span>{{ book.publishedDate }}</span>
+                                    <p>{{ book.textSnippet }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

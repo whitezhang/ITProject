@@ -1,21 +1,23 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-# User
+# User: Discarded
 class UserProfile(models.Model):
     username = models.CharField(max_length=32, unique=True)
     password = models.CharField(max_length=32)
+    # user = models.OneToOneField(User)
 
     def __unicode__(self):
         return self.username
+        # return self.user.username
 
 # Query
 # ER: query <--> many to one <--> user
 class Query(models.Model):
     query = models.CharField(max_length=128)
-
-    user = models.ForeignKey(UserProfile)
+    user = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.query
