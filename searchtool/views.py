@@ -50,3 +50,12 @@ def profile(request):
 def logoutRequest(request):
     logout(request)
     return HttpResponseRedirect("/searchtool/")
+
+# Search
+def search(request):
+    book_list = [{'title':'Thinking In JAVA', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com',
+                  'textSnippet':'something', 'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'}]
+    if request.method == 'GET':
+        print request.GET['query']
+    # return HttpResponseRedirect("/searchtool/index")
+    return render(request, 'searchtool/index.html', {'book_list': book_list})

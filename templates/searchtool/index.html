@@ -4,6 +4,10 @@
 
 <!-- head -->
 {% block head %}
+    <!--<link rel="stylesheet" href="{% static 'css/normalize.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">-->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
 
 {% endblock %}
 
@@ -32,6 +36,25 @@
 
 <!-- main_content -->
 {% block main_content %}
+<!--Waterfall Template-->
+    <div class="main-posts">
+        <div class="container">
+            <div class="row">
+                <div class="blog-masonry masonry-true">
+                    {% if book_list %}
+                    {% for book in book_list %}
+                    <div class="post-masonry col-md-4 col-sm-6">
+                        <div class="post-thumb">
+                            <img src="http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api">
+                            <div class="title-over">{{ book.title }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
