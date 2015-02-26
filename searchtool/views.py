@@ -48,6 +48,12 @@ def register(request):
 def profile(request):
     return render(request, 'searchtool/profile.html')
 
+def allTopics(request):
+    return render(request, 'searchtool/alltopics.html')
+
+def myTopics(request):
+    return render(request, 'searchtool/mytopics.html')
+
 # Logout
 def logoutRequest(request):
     logout(request)

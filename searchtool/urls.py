@@ -9,4 +9,6 @@ urlpatterns = patterns('',
         url(r'^profile/$', views.profile, name='profile'),
         url(r'^search/$', views.search, name='search'),
         url(r'^goto/$', views.goto, name='goto'),
+        url(r'^alltopics/$', views.allTopics, name='alltopics'),
+        url(r'^mytopics/$', views.myTopics, name='mytopics'),
 )

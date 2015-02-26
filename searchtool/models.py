@@ -25,7 +25,7 @@ class Query(models.Model):
 # Book
 # ER: book <--> one to one <--> query
 class Book(models.Model):
-    bookid = models.CharField(max_length=32,unique=True)
+    bookid = models.CharField(max_length=32)
     title = models.CharField(max_length=128)
     authors = models.CharField(max_length=128)
     setLink = models.CharField(max_length=512)
@@ -37,7 +37,8 @@ class Book(models.Model):
 
     views = models.IntegerField(default=0)
 
-    query = models.OneToOneField(Query, blank=True, null=True)
+    # query = models.OneToOneField(Query, blank=True, null=True)
+    query = models.ForeignKey(Query, blank=True, null=True)
 
     def __unicode__(self):
         return self.title

@@ -1,0 +1,16 @@
+{% extends 'searchtool/base.html' %}
+
+{% load staticfiles %}
+
+
+{% block tab %}
+<div>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/searchtool/index/"> Home </a></li>
+        <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
+        {% if user.is_authenticated %}
+        <li role="presentation" class="active"><a href="/searchtool/mytopics/"> My Topics </a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}
