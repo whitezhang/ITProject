@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='query',
-            field=models.OneToOneField(null=True, blank=True, to='searchtool.Query'),
+            field=models.ForeignKey(blank=True, to='searchtool.Query', null=True),
             preserve_default=True,
         ),
     ]
