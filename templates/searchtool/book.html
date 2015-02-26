@@ -1,0 +1,35 @@
+{% extends 'searchtool/base.html' %}
+
+{% load staticfiles %}
+
+<!--block head-->
+{% block head %}
+<script type="text/javascript">
+    $(function () {
+        var that = this;
+        $("#jRate").jRate({
+            rating: 3,
+            strokeColor: 'black',
+            startColor: 'cyan',
+            endColor: 'blue',
+            shape: 'TWITTER',
+            opacity: 0.7,
+            width: 50,
+            height: 50,
+            onChange: function(rating) {
+                console.log("OnChange: Rating: "+rating);
+            },
+            onSet: function(rating) {
+                console.log("OnSet: Rating: "+rating);
+            }
+        });
+
+    });
+</script>
+{% endblock %}
+
+<!--block main_content-->
+{% block main_content %}
+<script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
+<div id="jRate"></div>
+{% endblock %}

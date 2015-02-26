@@ -61,7 +61,7 @@ def logoutRequest(request):
 
 # Search
 def search(request):
-    # TODO
+    # TODO(Integration)
     book_list = [{'id':'Ql6QgWf6i7cC','title':'Thinking In JAVA', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com', 'categories':'computer',
                   'textSnippet':'Bruce Eckel&#39;s &quot;Thinking in Java\-demonstrates advanced topics.Explains sound objectdemonstrates advanced topics.Explains sound objectdemonstrates advanced topics.Explains sound object',
                   'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
@@ -82,12 +82,14 @@ def search(request):
 
 def goto(request):
     book = ast.literal_eval(request.POST['book'])
-    print request.POST['queryid']
-    # query = ast.literal_eval(request.POST['query'][0])
-    # print query.id
     if request.user.is_authenticated() == True:
         print request.user.username
-        # print type(request.POST['query'])
         daoSaveBookInQuery(book, request.POST['queryid'])
-    print 'goto: ', request.POST['readerLink']
-    return HttpResponseRedirect(request.POST['readerLink'])
+    print 'goto: ', book['webReaderLink']
+    # Redirect to another page
+    return HttpResponseRedirect('/searchtool/book')
+    # Discarded
+    # return HttpResponseRedirect(book['webReaderLink'])
+
+def showBook(request):
+    return render(request, 'searchtool/book.html')

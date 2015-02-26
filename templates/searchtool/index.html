@@ -4,7 +4,6 @@
 
 <!-- head -->
 {% block head %}
-
 {% endblock %}
 
 <!-- headline -->
@@ -52,7 +51,6 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="queryid" value="{{ queryid }}"/>
                                         <input type="hidden" name="book" value="{{ book }}"/>
-                                        <input type="hidden" name="readerLink" value="{{ book.webReaderLink }}"/>
                                         <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
                                     </form>
                                     <span>{{ book.authors }}</span>

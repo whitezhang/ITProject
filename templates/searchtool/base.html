@@ -69,7 +69,7 @@
 
 <body>
 
-<form id="search" method="get" action="/searchtool/search/">
+<form id="search" method="get" action="/searchtool/search">
     {% csrf_token %}
     <input type="text" name="query" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
     <input type="submit" name="GSearch" value="Go"/>
