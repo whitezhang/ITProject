@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Book',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('bookid', models.CharField(unique=True, max_length=32)),
+                ('bookid', models.CharField(max_length=32)),
                 ('title', models.CharField(max_length=128)),
                 ('authors', models.CharField(max_length=128)),
                 ('setLink', models.CharField(max_length=512)),
@@ -25,7 +25,19 @@ class Migration(migrations.Migration):
                 ('textSnippet', models.CharField(max_length=1024)),
                 ('webReaderLink', models.CharField(max_length=512)),
                 ('categories', models.CharField(max_length=128)),
-                ('views', models.IntegerField(default=0)),
+                ('views', models.IntegerField(default=1)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='BookReview',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('bookid', models.CharField(unique=True, max_length=32)),
+                ('title', models.CharField(max_length=128)),
+                ('views', models.IntegerField(default=1)),
             ],
             options={
             },

@@ -22,10 +22,18 @@ class Query(models.Model):
     def __unicode__(self):
         return self.query
 
+class BookReview(models.Model):
+    bookid = models.CharField(max_length=32, unique=True)
+    title = models.CharField(max_length=128)
+    views = models.IntegerField(default=1)
+
+    def __unicode__(self):
+        return self.title
+
 # Book
 # ER: book <--> one to one <--> query
 class Book(models.Model):
-    bookid = models.CharField(max_length=32, unique=True)
+    bookid = models.CharField(max_length=32)
     title = models.CharField(max_length=128)
     authors = models.CharField(max_length=128)
     setLink = models.CharField(max_length=512)

@@ -69,7 +69,7 @@ def search(request):
                   'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
                   'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
                  {'id':'Ql6QgWf6i7cD','title':'Thinking In JAVA2', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com','textSnippet':'something',
-                  'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 'categories':'computer',
+                    'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 'categories':'computer',
                   'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
                  {'id':'Ql6QgWf6i7cE','title':'Thinking In JAVA3', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com','textSnippet':'something',
                   'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 'categories':'computer',
