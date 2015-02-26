@@ -26,9 +26,16 @@
             },
             onSet: function(rating) {
                 console.log("OnSet: Rating: "+rating);
+                test();
             }
         });
 	});
+
+    function test() {
+	    $.get('/searchtool/likebook/', {test: 'test'}, function(data) {
+            alert('dfs');
+        });
+    };
 </script>
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 

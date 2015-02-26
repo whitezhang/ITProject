@@ -103,3 +103,6 @@ def showBook(request):
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
     return render(request, 'searchtool/book.html', {'book': book})
+
+def likeBook(request):
+    return HttpResponse(1)
