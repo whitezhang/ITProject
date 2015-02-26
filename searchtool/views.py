@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, saveBookInTopic
+from searchtool.models import Query, User
+
 import ast
 
 # This is homepage
@@ -74,22 +76,30 @@ def search(request):
                   'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
     ]
     # Process Get information
-    if request.method == 'GET':
+    # if request.method == 'GET':
+    if request.user.is_authenticated() == True:
         # Save queries as user's history into database
         query = daoSaveQueryToUser(request.GET['query'], request.user.username)
         print query
+    else:
+        query = Query(request.GET['query'], User.objects.get_or_create(username='guest', password='guest'))
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
 
 def goto(request):
     book = ast.literal_eval(request.POST['book'])
     if request.user.is_authenticated() == True:
-        print request.user.username
+        # print request.user.username
         daoSaveBookInQuery(book, request.POST['queryid'])
-    print 'goto: ', book['webReaderLink']
     # Redirect to another page
-    return HttpResponseRedirect('/searchtool/book')
+    # print request
+    return HttpResponseRedirect('/searchtool/book?title=%s&&authors=%s&&publishedDate=%s' % (book['title'], book['authors'], book['publishedDate']))
     # Discarded
+    # print 'goto: ', book['webReaderLink']
     # return HttpResponseRedirect(book['webReaderLink'])
 
 def showBook(request):
-    return render(request, 'searchtool/book.html')
+    book = {}
+    book['title'] = request.GET['title']
+    book['authors'] = request.GET['authors']
+    book['publishedDate'] = request.GET['publishedDate']
+    return render(request, 'searchtool/book.html', {'book': book})

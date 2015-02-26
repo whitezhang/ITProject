@@ -18,6 +18,7 @@
             endColor: 'blue',
             shape: 'TWITTER',
             opacity: 0.7,
+            precision: 0,
             width: 50,
             height: 50,
             onChange: function(rating) {
@@ -31,5 +32,11 @@
 </script>
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
-<div id="jRate"></div>
+<div>
+    <h4>{{ book.title }}</h4>
+    <h4>{{ book.authors }}</h4>
+    <h4>{{ book.publishedDate }}</h4>
+    <div id="jRate"></div>
+</div>
+
 {% endblock %}

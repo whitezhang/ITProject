@@ -11,6 +11,6 @@ urlpatterns = patterns('',
         url(r'^alltopics/$', views.allTopics, name='alltopics'),
         url(r'^mytopics/$', views.myTopics, name='mytopics'),
 
-        url(r'^book$', views.showBook, name='mytopics'),
+        url(r'^book$', views.showBook, name='book'),
         url(r'^search$', views.search, name='search'),
 )
