@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcb0b117-e1cd-4f50-ae77-01ba98ba8ffa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/searchtool/dao.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0002_remove_book_query.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0003_book_bid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0004_auto_20150223_1614.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0005_auto_20150223_1618.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0006_book_query.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/searchtool/migrations/0007_auto_20150223_1636.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/searchtool/migrations/0004_auto_20150223_1614.py" afterPath="$PROJECT_DIR$/searchtool/migrations/0002_auto_20150225_2218.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/searchtool/migrations/0005_auto_20150223_1618.py" afterPath="$PROJECT_DIR$/searchtool/migrations/0003_auto_20150225_2229.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/searchtool/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/admin.py" afterPath="$PROJECT_DIR$/searchtool/admin.py" />
