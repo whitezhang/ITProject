@@ -2,10 +2,14 @@
 
 {% load staticfiles %}
 
-<!--block head-->
+<!--Block head-->
 {% block head %}
+{% endblock %}
+
+<!--Block main_content-->
+{% block main_content %}
 <script type="text/javascript">
-    $(function () {
+	$(function () {
         var that = this;
         $("#jRate").jRate({
             rating: 3,
@@ -23,13 +27,9 @@
                 console.log("OnSet: Rating: "+rating);
             }
         });
-
-    });
+	});
 </script>
-{% endblock %}
-
-<!--block main_content-->
-{% block main_content %}
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
+
 <div id="jRate"></div>
 {% endblock %}
