@@ -26,16 +26,25 @@
             },
             onSet: function(rating) {
                 console.log("OnSet: Rating: "+rating);
-                test();
+                sendRates(rating);
             }
         });
 	});
 
-    function test() {
-	    $.get('/searchtool/likebook/', {test: 'test'}, function(data) {
-            alert('dfs');
+    function sendRates(rating) {
+	    $.get('/searchtool/ratebook/', {rating: rating}, function(data) {
+	        $('#test').html(data);
         });
     };
+
+    function sendLike() {
+        $.get('/searchtool/likebook/', {}, function() {
+            $('#liked').val('True')
+            $('#liked').removeClass('linkButton');
+            $('#liked').addClass('linkButtonToWord');
+        });
+    };
+
 </script>
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
@@ -43,6 +52,14 @@
     <h4>{{ book.title }}</h4>
     <h4>{{ book.authors }}</h4>
     <h4>{{ book.publishedDate }}</h4>
+    {% if book.isLiked %}
+    YES!!!
+    {% else %}
+    <input id="liked" type="button" class="linkButton" name="liked" value="{{ book.isLiked }}" onclick="sendLike()"/>
+    {% endif %}
+
+    <h4 id="test">2</h4>
+
     <div id="jRate"></div>
 </div>
 

@@ -238,3 +238,9 @@ body {
      text-decoration: underline;
      cursor: pointer;
 }
+
+.linkButtonToWord {
+     background: white;
+     border: none;
+     cursor: pointer;
+}

@@ -22,6 +22,15 @@ class Query(models.Model):
     def __unicode__(self):
         return self.query
 
+# BookLiked
+#ER:
+class BookLiked(models.Model):
+    bookid = models.CharField(max_length=32, unique=True)
+    def __unicode__(self):
+        return self.bookid
+
+# BookReview
+# primary key: bookid
 class BookReview(models.Model):
     bookid = models.CharField(max_length=32, unique=True)
     title = models.CharField(max_length=128)

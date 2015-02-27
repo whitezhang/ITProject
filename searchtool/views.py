@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from searchtool.forms import UserForm
-from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, saveBookInTopic
+from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked
 from searchtool.models import Query, User
 
 import ast
@@ -92,7 +92,7 @@ def goto(request):
         daoSaveBookInQuery(book, request.POST['queryid'])
     # Redirect to another page
     # print request
-    return HttpResponseRedirect('/searchtool/book?title=%s&&authors=%s&&publishedDate=%s' % (book['title'], book['authors'], book['publishedDate']))
+    return HttpResponseRedirect('/searchtool/book?id=%s&&title=%s&&authors=%s&&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
     # Discarded
     # print 'goto: ', book['webReaderLink']
     # return HttpResponseRedirect(book['webReaderLink'])
@@ -102,7 +102,13 @@ def showBook(request):
     book['title'] = request.GET['title']
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
+    book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
     return render(request, 'searchtool/book.html', {'book': book})
 
+def rateBook(request):
+    rating = request.GET['rating']
+    return HttpResponse(rating)
+
 def likeBook(request):
-    return HttpResponse(1)
+    print 'like'
+    return HttpResponse(True)

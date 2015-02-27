@@ -1,5 +1,5 @@
 from django.contrib import admin
-from searchtool.models import UserProfile, Book, Query, Topic, BookReview
+from searchtool.models import UserProfile, Book, Query, Topic, BookReview, BookLiked
 
 # Register your models here.
 
@@ -8,3 +8,4 @@ admin.site.register(Book)
 admin.site.register(BookReview)
 admin.site.register(Query)
 admin.site.register(Topic)
+admin.site.register(BookLiked)

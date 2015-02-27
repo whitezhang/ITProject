@@ -10,6 +10,7 @@ urlpatterns = patterns('',
         url(r'^goto/$', views.goto, name='goto'),
         url(r'^alltopics/$', views.allTopics, name='alltopics'),
         url(r'^mytopics/$', views.myTopics, name='mytopics'),
+        url(r'^ratebook/$', views.rateBook, name='ratebook'),
         url(r'^likebook/$', views.likeBook, name='likebook'),
 
         url(r'^book$', views.showBook, name='book'),
