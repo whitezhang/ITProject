@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from searchtool.forms import UserForm
-from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked
+from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked, daoSaveLikedBook
 from searchtool.models import Query, User
 
 import ast
@@ -99,6 +99,7 @@ def goto(request):
 
 def showBook(request):
     book = {}
+    book['id'] = request.GET['id']
     book['title'] = request.GET['title']
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
@@ -110,5 +111,7 @@ def rateBook(request):
     return HttpResponse(rating)
 
 def likeBook(request):
-    print 'like'
+    # TODO: database
+    bookid = request.GET['bookid'].encode('utf-8')
+    daoSaveLikedBook(bookid)
     return HttpResponse(True)

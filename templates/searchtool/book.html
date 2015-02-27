@@ -21,9 +21,6 @@
             precision: 0,
             width: 50,
             height: 50,
-            onChange: function(rating) {
-                console.log("OnChange: Rating: "+rating);
-            },
             onSet: function(rating) {
                 console.log("OnSet: Rating: "+rating);
                 sendRates(rating);
@@ -32,16 +29,18 @@
 	});
 
     function sendRates(rating) {
-	    $.get('/searchtool/ratebook/', {rating: rating}, function(data) {
+	    $.get('/searchtool/ratebook', {rating: rating}, function(data) {
 	        $('#test').html(data);
         });
     };
 
     function sendLike() {
-        $.get('/searchtool/likebook/', {}, function() {
+        var bookid = document.getElementById('bookid').value;
+        $.get('/searchtool/likebook', {bookid: bookid}, function() {
             $('#liked').val('True')
             $('#liked').removeClass('linkButton');
-            $('#liked').addClass('linkButtonToWord');
+            $('#liked').addClass('StandardWord');
+            document.getElementById('liked').type='text';
         });
     };
 
@@ -49,13 +48,18 @@
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
 <div>
+    <h4>{{ book.id }}</h4>
     <h4>{{ book.title }}</h4>
     <h4>{{ book.authors }}</h4>
     <h4>{{ book.publishedDate }}</h4>
     {% if book.isLiked %}
     YES!!!
     {% else %}
-    <input id="liked" type="button" class="linkButton" name="liked" value="{{ book.isLiked }}" onclick="sendLike()"/>
+    <form id="sendLike" method="get" action="javascript:sendLike()">
+        <input id="bookid" type="hidden" name="id" value="{{ book.id }}"/>
+        <input id="liked" type="submit" class="linkButton" name="liked" value="{{ book.isLiked }}" readonly/>
+    </form>
+    <!--<input id="liked" type="button" class="linkButton" name="liked" value="{{ book.isLiked }}" onclick="sendLike()" readonly/>-->
     {% endif %}
 
     <h4 id="test">2</h4>

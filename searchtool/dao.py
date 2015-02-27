@@ -38,3 +38,6 @@ def daoBookIsLiked(bookid):
 
 def daoSaveBookInTopic():
     pass
+
+def daoSaveLikedBook(bookid):
+    lb = BookLiked.objects.get_or_create(bookid=bookid)
