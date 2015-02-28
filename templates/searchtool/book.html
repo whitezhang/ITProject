@@ -36,10 +36,7 @@
 
     function collectBook() {
         var bookid = document.getElementById('bookid').value;
-        var title = document.getElementById('title').value;
-        var authors = document.getElementById('authors').value;
-        var publishedDate = document.getElementById('publishedDate').value;
-        $.get('/searchtool/collectbook', {bookid: bookid, title: title, authors: authors, publishedDate: publishedDate}, function() {
+        $.get('/searchtool/collectbook', {bookid: bookid}, function() {
             $('#collected').val('True')
             $('#collected').removeClass('linkButton');
             $('#collected').addClass('StandardWord');
@@ -73,10 +70,7 @@
     {% else %}
     <form id="collectLike" method="get" action="javascript:collectBook()">
         <input id="bookid" type="hidden" name="bookid" value="{{ book.id }}"/>
-        <input id="title" type="hidden" name="title" value="{{ book.title }}"/>
-        <input id="authors" type="hidden" name="authors" value="{{ book.authors }}"/>
-        <input id="publishedDate" type="hidden" name="publishedDate" value="{{ book.publishedDate }}"/>
-        <input id="collected" type="submit" class="linkButton" name="liked" value="{{ book.isLiked }}" readonly/>
+        <input id="collected" type="submit" class="linkButton" name="liked" value="{{ book.isCollected }}" readonly/>
     </form>
     {% endif %}
 

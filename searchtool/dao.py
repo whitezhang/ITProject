@@ -2,7 +2,7 @@ __author__ = 'wyatt'
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from searchtool.models import Query, UserProfile, Book, BookReview, BookLiked
+from searchtool.models import Query, UserProfile, Book, BookReview, BookLiked, BookCart
 
 def daoSaveBookInQuery(book, queryid):
     # print queryid
@@ -36,8 +36,26 @@ def daoBookIsLiked(bookid):
         return False
     return True
 
+def daoBookIsCollected(bookid):
+    try:
+        b = BookCart.objects.get(bookid=bookid)
+    except ObjectDoesNotExist:
+        return False
+    return True
+
+def daoSaveBookCart(bookid, username):
+    u = User.objects.get(username=username)
+    bookLib = Book.objects.filter(bookid=bookid)[0]
+    bc = BookCart.objects.get_or_create(bookid=bookLib.bookid, title=bookLib.title, authors=bookLib.authors, setLink=bookLib.setLink,
+             publishedDate=bookLib.publishedDate, imageLink=bookLib.imageLink, textSnippet=bookLib.textSnippet,
+             webReaderLink=bookLib.webReaderLink, categories=bookLib.categories, user=u)
+    bc[0].save()
+
 def daoSaveBookInTopic():
     pass
 
-def daoSaveLikedBook(bookid):
-    lb = BookLiked.objects.get_or_create(bookid=bookid)
+def daoSaveLikedBook(bookid, username):
+    print bookid
+    u = User.objects.get(username=username)
+    lb = BookLiked.objects.get_or_create(bookid='Ql6QgWf6i7cE', user=u)
+    lb[0].save()
