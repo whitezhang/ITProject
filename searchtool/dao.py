@@ -2,7 +2,8 @@ __author__ = 'wyatt'
 
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from searchtool.models import Query, UserProfile, Book, BookReview, BookLiked, BookCart
+from django.db.models import Sum
+from searchtool.models import Query, UserProfile, Book, BookReview, BookLiked, BookCart, BookRating
 
 def daoSaveBookInQuery(book, queryid):
     # print queryid
@@ -42,6 +43,28 @@ def daoBookIsCollected(bookid):
     except ObjectDoesNotExist:
         return False
     return True
+
+def daoCheckRating(bookid, username):
+    u = User.objects.get(username=username)
+    b = BookRating.objects.filter(bookid=bookid, user=u)
+    print bookid, u
+    print b
+    # Has not rated this book
+    if len(b) == 0:
+        return -1
+    number = BookRating.objects.filter(bookid=bookid).count()
+    sum = BookRating.objects.filter(bookid=bookid).aggregate(Sum('rating'))
+    print 'rate'
+    print sum['rating__sum']/number
+    return round(sum['rating__sum']/number)
+
+def daoSaveRates(bookid, rating, username):
+    u = User.objects.get(username=username)
+    # Has rated this book, can not rate it again
+    if daoCheckRating(bookid, username) != -1:
+        return
+    br = BookRating.objects.get_or_create(bookid=bookid, rating=rating, user=u)
+    br[0].save()
 
 def daoSaveBookCart(bookid, username):
     u = User.objects.get(username=username)

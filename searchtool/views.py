@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 
 from searchtool.forms import UserForm
-from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart
+from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, daoCheckRating
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 
@@ -108,6 +108,7 @@ def showBook(request):
     book['publishedDate'] = request.GET['publishedDate']
     book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
     book['isCollected'] = daoBookIsCollected(request.GET['id'].encode('utf-8'))
+    book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
     # Session for Collection
     # bookSession = request.session.get('bookCart', [])
     # book['isCollected'] = False
@@ -117,11 +118,12 @@ def showBook(request):
     #         break
     # print book['isCollected']
     # book['isCollected'] = request.session
-    print book
+    # print book
     return render(request, 'searchtool/book.html', {'book': book})
 
 def rateBook(request):
-    rating = request.GET['rating']
+    daoSaveRates(request.GET['bookid'], request.GET['rating'], request.user.username)
+    rating = daoCheckRating(request.GET['bookid'], request.user.username)
     return HttpResponse(rating)
 
 def collectBook(request):

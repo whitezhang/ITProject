@@ -10,9 +10,9 @@
 {% block main_content %}
 <script type="text/javascript">
 	$(function () {
-        var that = this;
+        var ratingNum = document.getElementById('rating').innerHTML;
         $("#jRate").jRate({
-            rating: 3,
+            rating: ratingNum,
             strokeColor: 'black',
             startColor: 'cyan',
             endColor: 'blue',
@@ -26,11 +26,24 @@
                 sendRates(rating);
             }
         });
+        $("#jRateRead").jRate({
+            rating: ratingNum,
+            strokeColor: 'black',
+            startColor: 'cyan',
+            endColor: 'blue',
+            shape: 'TWITTER',
+            opacity: 0.7,
+            precision: 0,
+            width: 50,
+            height: 50,
+            readOnly: true,
+        });
 	});
 
     function sendRates(rating) {
-	    $.get('/searchtool/ratebook', {rating: rating}, function(data) {
-	        $('#test').html(data);
+        var bookid = document.getElementById('bookid').value;
+        $.get('/searchtool/ratebook', {bookid: bookid, rating: rating}, function(data) {
+            $('#test').html(data);
         });
     };
 
@@ -84,9 +97,13 @@
     </form>
     {% endif %}
 
-    <h4 id="test">2</h4>
-
+    <h4 id="test">{{ book.rating }}</h4>
+    <p id="rating" style="display: none">{{ book.rating }}</p>
+    {% if book.rating == -1 %}
     <div id="jRate"></div>
+    {% else %}
+    <div id="jRateRead"></div>
+    {% endif %}
 </div>
 
 {% endblock %}

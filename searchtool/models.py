@@ -23,13 +23,22 @@ class Query(models.Model):
         return self.query
 
 # BookLiked
-#ER:
+# ER:
 class BookLiked(models.Model):
     bookid = models.CharField(max_length=32)
     user = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.bookid
+
+# BookRating
+class BookRating(models.Model):
+    bookid = models.CharField(max_length=32)
+    rating = models.IntegerField()
+    user = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.user.username+": "+self.bookid
 
 # BookReview
 # primary key: bookid
