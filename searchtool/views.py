@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.template import RequestContext
+
 from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked, daoSaveLikedBook
+from searchtool.models import BookItem, BookCart
 from searchtool.models import Query, User
 
 import ast
@@ -104,14 +107,35 @@ def showBook(request):
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
     book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
+    # Session for Collection
+    bookSession = request.session.get('bookCart', [])
+    book['isCollected'] = False
+    for item in bookSession:
+        if item.get('bookid') == book['id']:
+            book['isCollected'] = True
+            break
+    print book['isCollected']
+    # book['isCollected'] = request.session
     return render(request, 'searchtool/book.html', {'book': book})
 
 def rateBook(request):
     rating = request.GET['rating']
     return HttpResponse(rating)
 
+def collectBook(request):
+    book = {}
+    book['bookid'] = request.GET['bookid']
+    book['title'] = request.GET['title']
+    book['authors'] = request.GET['authors']
+    book['publishedDate'] = request.GET['publishedDate']
+    # Session
+    cart = request.session.get("bookCart", [])
+    cart.append(book)
+    request.session['bookCart'] = cart
+    # print cart
+    return render(request, 'searchtool/book.html', {'book': book})
+
 def likeBook(request):
-    # TODO: database
     bookid = request.GET['bookid'].encode('utf-8')
     daoSaveLikedBook(bookid)
     return HttpResponse(True)

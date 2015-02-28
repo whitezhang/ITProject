@@ -26,6 +26,8 @@ class Query(models.Model):
 #ER:
 class BookLiked(models.Model):
     bookid = models.CharField(max_length=32, unique=True)
+    user = models.ForeignKey(User)
+
     def __unicode__(self):
         return self.bookid
 
@@ -70,3 +72,17 @@ class Topic(models.Model):
 
     def __unicode__(self):
         return self.topic
+
+# ==============
+# Shopping cart
+class BookItem():
+    bookid = models.CharField(max_length=32)
+    title = models.CharField(max_length=128)
+    authors = models.CharField(max_length=128)
+    publishedDate = models.CharField(max_length=32)
+
+class BookCart(object):
+    def __init__(self):
+        self.item = []
+    def addBook(self, bookitem):
+        self.item.append(bookitem)
