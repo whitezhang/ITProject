@@ -13,6 +13,8 @@ urlpatterns = patterns('',
         url(r'^ratebook/$', views.rateBook, name='ratebook'),
         url(r'^likebook/$', views.likeBook, name='likebook'),
         url(r'^collectbook/$', views.collectBook, name='collectbook'),
+        url(r'^addtopic/$', views.addTopic, name='addtopic'),
+        url(r'^createtopic/$', views.createTopic, name='createtopic'),
 
         url(r'^book$', views.showBook, name='book'),
         url(r'^search$', views.search, name='search'),

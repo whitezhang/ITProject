@@ -4,7 +4,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 
 from searchtool.forms import UserForm
-from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, daoCheckRating
+from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
+    daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
+    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 
@@ -106,9 +108,13 @@ def showBook(request):
     book['title'] = request.GET['title']
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
-    book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
-    book['isCollected'] = daoBookIsCollected(request.GET['id'].encode('utf-8'))
+    # book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
+    if(daoBookIsCollected(request.GET['id'].encode('utf-8') == False)):
+        book['isCollected'] = "Want to Collect?"
+    else:
+        book['isCollected'] = "Collected"
     book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
+    book['reviews'] = daoGetBookReviews(request.GET['id'])
     # Session for Collection
     # bookSession = request.session.get('bookCart', [])
     # book['isCollected'] = False
@@ -136,6 +142,18 @@ def collectBook(request):
     # return render(request, 'searchtool/book.html', {'book': book})
     return HttpResponse(True)
 
+# Discarded
 def likeBook(request):
-    daoSaveLikedBook(request.GET['bookid'], request.user.username)
+    pass
+    # daoSaveLikedBook(request.GET['bookid'], request.user.username)
+    # return HttpResponse(True)
+
+def addTopic(request):
+    bookList = daoGetBookCartList(request.user.username)
+    return render(request, 'searchtool/addTopic.html', {'book_list': bookList})
+
+def createTopic(request):
+    bookidList = request.POST.getlist('bookid')
+    topicTitle = request.POST['topictitle']
+    daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
     return HttpResponse(True)

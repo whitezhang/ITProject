@@ -75,6 +75,7 @@
     <h4>{{ book.title }}</h4>
     <h4>{{ book.authors }}</h4>
     <h4>{{ book.publishedDate }}</h4>
+    <h4>{{ book.reviews }} Reviews</h4>
 
     <!--Collect it-->
     <!--Shopping Cart-->
@@ -88,21 +89,22 @@
     {% endif %}
 
     <!--Like It-->
-    {% if book.isLiked %}
-    YES!!!
-    {% else %}
-    <form id="sendLike" method="get" action="javascript:sendLike()">
-        <input id="bookid" type="hidden" name="bookid" value="{{ book.id }}"/>
-        <input id="liked" type="submit" class="linkButton" name="liked" value="{{ book.isLiked }}" readonly/>
-    </form>
-    {% endif %}
+    <!--{% if book.isLiked %}-->
+    <!--YES!!!-->
+    <!--{% else %}-->
+    <!--<form id="sendLike" method="get" action="javascript:sendLike()">-->
+        <!--<input id="bookid" type="hidden" name="bookid" value="{{ book.id }}"/>-->
+        <!--<input id="liked" type="submit" class="linkButton" name="liked" value="{{ book.isLiked }}" readonly/>-->
+    <!--</form>-->
+    <!--{% endif %}-->
 
     <h4 id="test">{{ book.rating }}</h4>
+    <!--Rating-->
     <p id="rating" style="display: none">{{ book.rating }}</p>
     {% if book.rating == -1 %}
-    <div id="jRate"></div>
+        <div id="jRate"></div>
     {% else %}
-    <div id="jRateRead"></div>
+        <div id="jRateRead"></div>
     {% endif %}
 </div>
 

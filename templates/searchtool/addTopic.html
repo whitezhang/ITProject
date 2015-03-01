@@ -1,0 +1,22 @@
+{% extends 'searchtool/base.html' %}
+
+{% load staticfiles %}
+
+<!--Block main_content-->
+{% block main_content %}
+    {% if book_list %}
+        <form id="bookCart" method="post" action="/searchtool/createtopic/">
+            {% csrf_token %}
+            {% for book in book_list %}
+            <input id="{{ book.bookid }}" type="checkbox" name="bookid" value="{{ book.bookid }}"/>
+            <h4>{{ book.title }}</h4>
+            <h4>{{ book.authors }}</h4>
+            <h4>{{ book.publishedDate }}</h4>
+            <img src="{{ book.imageLink }}"/>
+            <br>
+            {% endfor %}
+            <input type="text" name="topictitle"/>
+            <input class="linkButton" type="submit" name="createTopic" value="Create"/>
+        </form>
+    {% endif %}
+{% endblock %}
