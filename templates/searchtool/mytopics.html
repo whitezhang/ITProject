@@ -15,3 +15,17 @@
 </div>
 
 {% endblock %}
+
+{% block main_content %}
+    {% if topic_list %}
+    <ol>
+        {% for topic in topic_list %}
+            <li>
+                {{ topic.topic }}
+                {{ topic.user.username }}
+            </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+
+{% endblock %}

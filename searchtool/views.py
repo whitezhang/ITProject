@@ -6,7 +6,7 @@ from django.template import RequestContext
 from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
     daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
-    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews
+    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopic, daoGetAllTopic
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 
@@ -56,10 +56,12 @@ def profile(request):
     return render(request, 'searchtool/profile.html')
 
 def allTopics(request):
-    return render(request, 'searchtool/alltopics.html')
+    topicList = daoGetAllTopic()
+    return render(request, 'searchtool/alltopics.html', {'topic_list': topicList})
 
 def myTopics(request):
-    return render(request, 'searchtool/mytopics.html')
+    topicList = daoGetTopic(request.user.username)
+    return render(request, 'searchtool/mytopics.html', {'topic_list': topicList})
 
 # Logout
 def logoutRequest(request):
@@ -109,7 +111,7 @@ def showBook(request):
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
     # book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
-    if(daoBookIsCollected(request.GET['id']) == False):
+    if(daoBookIsCollected(request.GET['id'], request.user.username) == False):
         book['isCollected'] = "Want to Collect?"
     else:
         book['isCollected'] = "Collected"

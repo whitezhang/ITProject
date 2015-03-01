@@ -37,15 +37,12 @@ def daoBookIsLiked(bookid):
         return False
     return True
 
-def daoBookIsCollected(bookid):
-    print 'here'
+def daoBookIsCollected(bookid, username):
+    u = User.objects.get(username=username)
     try:
-        print "here", bookid
-        b = BookCart.objects.get(bookid=bookid)
-        print "here", b, bookid
+        b = BookCart.objects.get(bookid=bookid, user=u)
     except ObjectDoesNotExist:
         return False
-    print "true"
     return True
 
 def daoCheckRating(bookid, username):
@@ -100,3 +97,11 @@ def daoSaveLikedBook(bookid, username):
 def daoGetBookReviews(bookid):
     br = BookReview.objects.get(bookid=bookid)
     return br.views
+
+def daoGetTopic(username):
+    u = User.objects.get(username=username)
+    topicList = Topic.objects.filter(user=u)
+    return topicList
+
+def daoGetAllTopic():
+    return Topic.objects.all()
