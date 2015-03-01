@@ -80,6 +80,7 @@ def daoGetBookCartList(username):
     return blist
 
 # Create a topic from book cart
+# Then delete these books from cart
 def daoSaveBookInTopic(bookidList, username, topicTitle):
     u = User.objects.get(username=username)
     for id in bookidList:
@@ -87,6 +88,7 @@ def daoSaveBookInTopic(bookidList, username, topicTitle):
         t = Topic(topic=topicTitle, date=datetime.datetime.today(), user=u)
         t.save()
         t.book.add(b)
+        BookCart.objects.get(bookid=id).delete()
 
 def daoSaveLikedBook(bookid, username):
     print bookid
