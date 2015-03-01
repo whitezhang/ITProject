@@ -38,10 +38,14 @@ def daoBookIsLiked(bookid):
     return True
 
 def daoBookIsCollected(bookid):
+    print 'here'
     try:
+        print "here", bookid
         b = BookCart.objects.get(bookid=bookid)
+        print "here", b, bookid
     except ObjectDoesNotExist:
         return False
+    print "true"
     return True
 
 def daoCheckRating(bookid, username):
@@ -54,8 +58,7 @@ def daoCheckRating(bookid, username):
         return -1
     number = BookRating.objects.filter(bookid=bookid).count()
     sum = BookRating.objects.filter(bookid=bookid).aggregate(Sum('rating'))
-    print 'rate'
-    print sum['rating__sum']/number
+    # print sum['rating__sum']/number
     return round(sum['rating__sum']/number)
 
 def daoSaveRates(bookid, rating, username):

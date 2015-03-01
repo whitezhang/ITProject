@@ -109,10 +109,11 @@ def showBook(request):
     book['authors'] = request.GET['authors']
     book['publishedDate'] = request.GET['publishedDate']
     # book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
-    if(daoBookIsCollected(request.GET['id'].encode('utf-8') == False)):
+    if(daoBookIsCollected(request.GET['id']) == False):
         book['isCollected'] = "Want to Collect?"
     else:
         book['isCollected'] = "Collected"
+    print book['isCollected']
     book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
     book['reviews'] = daoGetBookReviews(request.GET['id'])
     # Session for Collection

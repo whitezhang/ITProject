@@ -79,7 +79,7 @@
 
     <!--Collect it-->
     <!--Shopping Cart-->
-    {% if book.isCollected %}
+    {% if book.isCollected == 'Collected' %}
     <p>Collected</p>
     {% else %}
     <form id="collectLike" method="get" action="javascript:collectBook()">
