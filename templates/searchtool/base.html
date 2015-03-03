@@ -4,8 +4,11 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title> Searching From Here </title>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://bootswatch.com/cosmo/bootstrap.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+    <!--From getbootstrap.com-->
+    <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -17,51 +20,53 @@
     <script type="text/javascript" src="{% static 'js/googlesearch.js' %}"></script>
     <script src="https://www.google.com/jsapi?key=ABQIAAAAFEyVt-pBJaTXzM__EKlCrBTsyyvZhuBjP1YLRoRPwle1bnzSQRQBJp693I-9cLRWqwHDWCO_xmGezQ"
             type="text/javascript"></script>
-    <script type="text/javascript">
-        google.load("search", "1", {"language" : "en"});
-        google.setOnLoadCallback(initialize);
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--google.load("search", "1", {"language" : "en"});-->
+        <!--google.setOnLoadCallback(initialize);-->
+    <!--</script>-->
 
     <link href="{% static 'css/template.css' %}" rel="stylesheet" type="text/css">
 
     <!-- Login and Logout -->
-    <div>
-        <img src="{% static 'images/logo.png' %}" alt="test"/>
+    <div style="position:relative;">
+        <div style="float:left;"><img src="{% static 'images/logo.png' %}" alt="test"/></div>
 
-        <div>
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <!--<img src="{% static 'images/logo.png' %}" alt="test"/>-->
+            <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
-            <p> Hello {{user.username}} </p>
-            <input type="button" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'"/>
-            <input type="button" name="addtopic" value="addTopic" onclick="location.href='/searchtool/addtopic/'"/>
-            <a href="/searchtool/logout/">Logout</a>
+            <p class="lead" style="display:inline"> Hello {{user.username}} </p>
+            <input type="button" class="btn btn-default" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'"/>
+            <input type="button" class="btn btn-default" name="addtopic" value="addTopic" onclick="location.href='/searchtool/addtopic/'"/>
+            <a class="btn btn-default" href="/searchtool/logout/">Logout</a>
             {% else %}
-            <form id="login" method="post" action="/searchtool/index/">
+            <form id="login" class="navbar-form navbar-left" method="post" action="/searchtool/index/">
                 {% csrf_token %}
                 Username: <input type="text" name="username" value="" size="25"/>
                 Password: <input type="password" name="password" value="" size="25"/>
-                <input type="submit" name="login" value="Login"/>
+                <input class="btn btn-default" type="submit"  name="login" value="Login"/>
             </form>
-            <input type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
+            <input class="btn btn-default" type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
             <!-- use JavaScript to replace-->
             {% endif%}
-        </div>
-
-        <!-- search tool -->
-        <!-- search tabs -->
-        <!--<div id="searchcontrol"></div>-->
-        {% block tab %}
-        <div>
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="/searchtool/index/"> Home </a></li>
-                <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
-                {% if user.is_authenticated %}
-                <li role="presentation"><a href="/searchtool/mytopics/"> My Topics </a></li>
-                {% endif %}
             </ul>
         </div>
-        {% endblock %}
-
     </div>
+
+    <!-- search tool -->
+    <!-- search tabs -->
+    <!--<div id="searchcontrol"></div>-->
+    {% block tab %}
+    <div style="clear:both;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="/searchtool/index/"> Home </a></li>
+            <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
+            {% if user.is_authenticated %}
+            <li role="presentation"><a href="/searchtool/mytopics/"> My Topics </a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endblock %}
 
     <!-- template -->
     {% block head %}{% endblock %}
