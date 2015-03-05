@@ -13,6 +13,7 @@
         var ratingNum = document.getElementById('rating').innerHTML;
         $("#jRate").jRate({
             rating: ratingNum,
+            backgroundColor: 'black',
             strokeColor: 'black',
             startColor: 'cyan',
             endColor: 'blue',
@@ -28,6 +29,7 @@
         });
         $("#jRateRead").jRate({
             rating: ratingNum,
+            backgroundColor: 'black',
             strokeColor: 'black',
             startColor: 'cyan',
             endColor: 'blue',
@@ -70,14 +72,21 @@
 </script>
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
-<div>
+<div align="center">
     <!--<h1>{{ book.id }}</h1>-->
     <h1>{{ book.title }}</h1>
-    <h2>{{ book.authors }}</h2>
-    <h2>{{ book.publishedDate }}</h2>
+    <p style="display:inline">{{ book.authors }}</p>
+    <p style="display:inline">{{ book.publishedDate }}</p>
     <h3>{{ book.reviews }} Reviews</h3>
     <img src="{{ book.image }}"/>
 
+    <!--Rating-->
+    <p id="rating" style="display: none">{{ book.rating }}</p>
+    {% if book.rating == -1 %}
+        <div id="jRate"></div>
+    {% else %}
+        <div id="jRateRead"></div>
+    {% endif %}
     <!--Collect it-->
     <!--Shopping Cart-->
     {% if book.isCollected == 'Collected' %}
@@ -87,25 +96,6 @@
         <input id="bookid" type="hidden" name="bookid" value="{{ book.id }}"/>
         <input id="collected" type="submit" class="linkButton" name="liked" value="{{ book.isCollected }}" readonly/>
     </form>
-    {% endif %}
-
-    <!--Like It-->
-    <!--{% if book.isLiked %}-->
-    <!--YES!!!-->
-    <!--{% else %}-->
-    <!--<form id="sendLike" method="get" action="javascript:sendLike()">-->
-        <!--<input id="bookid" type="hidden" name="bookid" value="{{ book.id }}"/>-->
-        <!--<input id="liked" type="submit" class="linkButton" name="liked" value="{{ book.isLiked }}" readonly/>-->
-    <!--</form>-->
-    <!--{% endif %}-->
-
-    <h4 id="test">{{ book.rating }}</h4>
-    <!--Rating-->
-    <p id="rating" style="display: none">{{ book.rating }}</p>
-    {% if book.rating == -1 %}
-        <div id="jRate"></div>
-    {% else %}
-        <div id="jRateRead"></div>
     {% endif %}
 </div>
 

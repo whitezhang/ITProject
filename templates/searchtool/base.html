@@ -31,20 +31,18 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Digital Lib</a>
-                <div style="position:relative;">
-                    <div><img src="{% static 'images/logo.png' %}" alt="test"/></div>
-                </div>
+                <img src="{% static 'images/logo.png' %}" alt="logo" class="lib-img"/>
+                <a class="navbar-brand lib-title" href="#">Digital Lib</a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <!--<img src="{% static 'images/logo.png' %}" alt="test"/>-->
 
                 {% if user.is_authenticated %}
-                <ul class="nav navbar-nav">
-                    <li class="lead"> Hello {{user.username}} </li>
-                    <li><a href="/searchtool/profile/">Profile</a></li>
-                    <li><a href="/searchtool/addtopic">addTopic</a></li>
+                <ul class="nav navbar-nav lib-title">
+                    <li class="lead" style="position:relative; top:10px"><p margin="100px"> Hello {{user.username}} </p></li>
+                    <li><a class="btn btn-default" href="/searchtool/profile/">Profile</a></li>
+                    <li><a class="btn btn-default" href="/searchtool/addtopic">addTopic</a></li>
                     <!--<input type="button" class="btn btn-default" name="Profile" value="Profile"-->
                     <!--onclick="location.href='/searchtool/profile/'"/>-->
                     <!--<input type="button" class="btn btn-default" name="addtopic" value="addTopic"-->
@@ -63,7 +61,6 @@
                 </ul>
                 <!-- use JavaScript to replace-->
                 {% endif%}
-
             </div>
         </div>
     </nav>
@@ -72,7 +69,7 @@
     <!-- search tabs -->
     <!--<div id="searchcontrol"></div>-->
     {% block tab %}
-    <div style="clear:both;">
+    <div style="clear:both;width: 1340px;margin-left: 30px;">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="/searchtool/index/"> Home </a></li>
             <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
