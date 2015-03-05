@@ -92,7 +92,6 @@ def daoSaveBookInTopic(bookidList, username, topicTitle):
 
 
 def daoSaveLikedBook(bookid, username):
-    print bookid
     u = User.objects.get(username=username)
     lb = BookLiked.objects.get_or_create(bookid='Ql6QgWf6i7cE', user=u)
     lb[0].save()
@@ -108,3 +107,7 @@ def daoGetTopic(username):
 
 def daoGetAllTopic():
     return Topic.objects.all()
+
+def daoGetImage(bookid):
+    b = BookItem.objects.get(bookid=bookid)
+    return b.imageLink

@@ -14,44 +14,59 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
-    <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    <!--<script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>-->
     <!-- Google Search API TODO -->
     <!--Discard-->
-    <script type="text/javascript" src="{% static 'js/googlesearch.js' %}"></script>
-    <script src="https://www.google.com/jsapi?key=ABQIAAAAFEyVt-pBJaTXzM__EKlCrBTsyyvZhuBjP1YLRoRPwle1bnzSQRQBJp693I-9cLRWqwHDWCO_xmGezQ"
-            type="text/javascript"></script>
+    <!--<script type="text/javascript" src="{% static 'js/googlesearch.js' %}"></script>-->
+    <!--<script src="https://www.google.com/jsapi?key=ABQIAAAAFEyVt-pBJaTXzM__EKlCrBTsyyvZhuBjP1YLRoRPwle1bnzSQRQBJp693I-9cLRWqwHDWCO_xmGezQ"-->
+            <!--type="text/javascript"></script>-->
     <!--<script type="text/javascript">-->
-        <!--google.load("search", "1", {"language" : "en"});-->
-        <!--google.setOnLoadCallback(initialize);-->
+    <!--google.load("search", "1", {"language" : "en"});-->
+    <!--google.setOnLoadCallback(initialize);-->
     <!--</script>-->
 
     <link href="{% static 'css/template.css' %}" rel="stylesheet" type="text/css">
 
     <!-- Login and Logout -->
-    <div style="position:relative;">
-        <div style="float:left;"><img src="{% static 'images/logo.png' %}" alt="test"/></div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Digital Lib</a>
+                <div style="position:relative;">
+                    <div><img src="{% static 'images/logo.png' %}" alt="test"/></div>
+                </div>
+            </div>
 
-        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-            <!--<img src="{% static 'images/logo.png' %}" alt="test"/>-->
-            <ul class="nav navbar-nav">
-            {% if user.is_authenticated %}
-            <p class="lead" style="display:inline"> Hello {{user.username}} </p>
-            <input type="button" class="btn btn-default" name="Profile" value="Profile" onclick="location.href='/searchtool/profile/'"/>
-            <input type="button" class="btn btn-default" name="addtopic" value="addTopic" onclick="location.href='/searchtool/addtopic/'"/>
-            <a class="btn btn-default" href="/searchtool/logout/">Logout</a>
-            {% else %}
-            <form id="login" class="navbar-form navbar-left" method="post" action="/searchtool/index/">
-                {% csrf_token %}
-                Username: <input type="text" name="username" value="" size="25"/>
-                Password: <input type="password" name="password" value="" size="25"/>
-                <input class="btn btn-default" type="submit"  name="login" value="Login"/>
-            </form>
-            <input class="btn btn-default" type="button" name="register" value="Register" onclick="location.href='/searchtool/register/'"/>
-            <!-- use JavaScript to replace-->
-            {% endif%}
-            </ul>
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <!--<img src="{% static 'images/logo.png' %}" alt="test"/>-->
+
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                    <li class="lead"> Hello {{user.username}} </li>
+                    <li><a href="/searchtool/profile/">Profile</a></li>
+                    <li><a href="/searchtool/addtopic">addTopic</a></li>
+                    <!--<input type="button" class="btn btn-default" name="Profile" value="Profile"-->
+                    <!--onclick="location.href='/searchtool/profile/'"/>-->
+                    <!--<input type="button" class="btn btn-default" name="addtopic" value="addTopic"-->
+                    <!--onclick="location.href='/searchtool/addtopic/'"/>-->
+                    <li><a class="btn btn-default" href="/searchtool/logout/">Logout</a></li>
+                </ul>
+                {% else %}
+                <form id="login" class="navbar-form navbar-left" method="post" action="/searchtool/index/">
+                    {% csrf_token %}
+                    Username: <input type="text" name="username" value="" size="25"/>
+                    Password: <input type="password" name="password" value="" size="25"/>
+                    <input class="btn btn-default" type="submit" name="login" value="Login"/>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/searchtool/register">Register</a></li>
+                </ul>
+                <!-- use JavaScript to replace-->
+                {% endif%}
+
+            </div>
         </div>
-    </div>
+    </nav>
 
     <!-- search tool -->
     <!-- search tabs -->
@@ -74,10 +89,12 @@
 
 <body>
 
-<form id="search" method="get" action="/searchtool/search">
+<form id="search" class="gsearch navbar-form" method="get" action="/searchtool/search">
     {% csrf_token %}
-    <input type="text" name="query" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />
-    <input type="submit" name="GSearch" value="Go"/>
+    <input class="form-group form-control" type="text" name="query" value="Search From Here" size="50"
+           onFocus="if(value==defaultValue){value='';this.style.color='#000'}"
+           onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+    <input class="btn btn-default" type="submit" name="GSearch" value="Go"/>
 </form>
 <!-- Bootstrap core JavaScript
     ================================================== -->

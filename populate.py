@@ -6,7 +6,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'searchWeb.settings')
 import django
 django.setup()
 
-from searchtool.models import UserProfile, Book
+from searchtool.models import UserProfile, BookItem
 
 def populate():
     addUser("Wyatt", "123456")
@@ -18,7 +18,7 @@ def addUser(username, password):
     return u
 
 def addBook(bookid, title, authors, setLink, publishedDate, imageLink, textSnippet, webReaderLink, categories, views):
-    b = Book.objects.get_or_create(bookid=bookid,title=title,authors=authors,setLink=setLink,publishedDate=publishedDate,imageLink=imageLink,
+    b = BookItem.objects.get_or_create(bookid=bookid,title=title,authors=authors,setLink=setLink,publishedDate=publishedDate,imageLink=imageLink,
                                    textSnippet=textSnippet,webReaderLink=webReaderLink,categories=categories,views=views)[0]
     return b
 

@@ -71,11 +71,12 @@
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
 <div>
-    <h4>{{ book.id }}</h4>
-    <h4>{{ book.title }}</h4>
-    <h4>{{ book.authors }}</h4>
-    <h4>{{ book.publishedDate }}</h4>
-    <h4>{{ book.reviews }} Reviews</h4>
+    <!--<h1>{{ book.id }}</h1>-->
+    <h1>{{ book.title }}</h1>
+    <h2>{{ book.authors }}</h2>
+    <h2>{{ book.publishedDate }}</h2>
+    <h3>{{ book.reviews }} Reviews</h3>
+    <img src="{{ book.image }}"/>
 
     <!--Collect it-->
     <!--Shopping Cart-->

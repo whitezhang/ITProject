@@ -6,9 +6,11 @@ from django.template import RequestContext
 from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
     daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
-    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopic, daoGetAllTopic
+    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopic,\
+    daoGetAllTopic, daoGetImage
 from searchtool.models import BookCart
 from searchtool.models import Query, User
+from searchtool.app import bookJSONParser
 
 import ast
 
@@ -71,25 +73,16 @@ def logoutRequest(request):
 # Search
 def search(request):
     # TODO(Integration)
-    book_list = [{'id':'Ql6QgWf6i7cC','title':'Thinking In JAVA', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com', 'categories':'computer',
-                  'textSnippet':'Bruce Eckel&#39;s &quot;Thinking in Java\-demonstrates advanced topics.Explains sound objectdemonstrates advanced topics.Explains sound objectdemonstrates advanced topics.Explains sound object',
-                  'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-                  'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
-                 {'id':'Ql6QgWf6i7cD','title':'Thinking In JAVA2', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com','textSnippet':'something',
-                    'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 'categories':'computer',
-                  'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
-                 {'id':'Ql6QgWf6i7cE','title':'Thinking In JAVA3', 'authors':'Bruce', 'publishedDate':2003, 'setLink':'google.com','textSnippet':'something',
-                  'image':'http://books.google.com/books/content?id=Ql6QgWf6i7cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', 'categories':'computer',
-                  'webReaderLink':'http://books.google.co.uk/books/reader?id=Ql6QgWf6i7cC&hl=&printsec=frontcover&output=reader&source=gbs_api'},
-    ]
+    query = request.GET['query']
+    book_list = bookJSONParser(query)
     # Process Get information
     # if request.method == 'GET':
     if request.user.is_authenticated() == True:
         # Save queries as user's history into database
-        query = daoSaveQueryToUser(request.GET['query'], request.user.username)
+        query = daoSaveQueryToUser(query, request.user.username)
         print query
     else:
-        query = Query(request.GET['query'], User.objects.get_or_create(username='guest', password='guest'))
+        query = Query(query, User.objects.get_or_create(username='guest', password='guest'))
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
 
 def goto(request):
@@ -108,16 +101,16 @@ def showBook(request):
     book = {}
     book['id'] = request.GET['id']
     book['title'] = request.GET['title']
-    book['authors'] = request.GET['authors']
+    book['authors'] = request.GET['authors'].encode('utf-8')
     book['publishedDate'] = request.GET['publishedDate']
-    # book['isLiked'] = daoBookIsLiked(request.GET['id'].encode('utf-8'))
     if(daoBookIsCollected(request.GET['id'], request.user.username) == False):
         book['isCollected'] = "Want to Collect?"
     else:
         book['isCollected'] = "Collected"
-    print book['isCollected']
     book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
     book['reviews'] = daoGetBookReviews(request.GET['id'])
+    book['image'] = daoGetImage(book['id'])
+
     # Session for Collection
     # bookSession = request.session.get('bookCart', [])
     # book['isCollected'] = False
