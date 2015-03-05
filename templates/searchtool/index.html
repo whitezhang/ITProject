@@ -8,25 +8,17 @@
 
 <!-- headline -->
 {% block headline %}
-    <!--<form id="gsearch" method="post" action="/searchtool/searchbook/">-->
-        <!--{% csrf_token %}-->
-        <!--<input type="text" name="query" value="Search By Google" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />-->
-        <!--<input type="submit" name="Gsearch" value="Go" />-->
-    <!--</form>-->
+    <form id="search" class="gsearch navbar-form" method="get" action="/searchtool/search">
+    {% csrf_token %}
+    <input class="form-group form-control" type="text" name="query" value="Search From Here" size="50"
+           onFocus="if(value==defaultValue){value='';this.style.color='#000'}"
+           onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+    <input class="btn btn-default" type="submit" name="GSearch" value="Go"/>
+    </form>
 {% endblock %}
 
 <!-- guideline -->
 {% block guideline %}
-    <!--<a href="/searchtool/alltopics">All Topics</a>-->
-    <!--{% if user.is_authenticated %}-->
-        <!--<a href="/searchtool/mytopics">My Topics</a>-->
-    <!--{% endif %}-->
-
-    <!--<form id="hsearch" method="post" action="/searchtool/searchfromDB">-->
-        <!--{% csrf_token %}-->
-        <!--<input type="text" name="find" value="Search From Here" size="50" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" />-->
-        <!--<input type="submit" name="Hsearch" value="Go" />-->
-    <!--</form>-->
 {% endblock %}
 
 <!-- main_content -->
