@@ -7,7 +7,7 @@ from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
-    daoGetAllTopic, daoGetImage, daoGetTopicByID, daoRemoveFromCartByID
+    daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser
@@ -72,7 +72,6 @@ def logoutRequest(request):
 
 # Search
 def search(request):
-    # TODO(Integration)
     query = request.GET['query']
     book_list = bookJSONParser(query)
     # Process Get information
@@ -80,7 +79,6 @@ def search(request):
     if request.user.is_authenticated() == True:
         # Save queries as user's history into database
         query = daoSaveQueryToUser(query, request.user.username)
-        print query
     else:
         query = Query(query, User.objects.get_or_create(username='guest', password='guest'))
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
@@ -109,7 +107,9 @@ def showBook(request):
         book['isCollected'] = "Collected"
     book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
     book['reviews'] = daoGetBookReviews(request.GET['id'])
-    book['image'] = daoGetImage(book['id'])
+    bookItem = daoGetBookByID(book['id'])
+    book['image'] = bookItem.imageLink
+    book['description'] = bookItem.description
 
     # Session for Collection
     # bookSession = request.session.get('bookCart', [])

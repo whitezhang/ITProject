@@ -66,6 +66,7 @@ class BookItem(models.Model):
     publishedDate = models.CharField(max_length=32)
     imageLink = models.CharField(max_length=512)
     textSnippet = models.CharField(max_length=1024)
+    description = models.CharField(max_length=2048)
     webReaderLink = models.CharField(max_length=512)
     categories = models.CharField(max_length=128)
 

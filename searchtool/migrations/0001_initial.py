@@ -41,6 +41,7 @@ class Migration(migrations.Migration):
                 ('publishedDate', models.CharField(max_length=32)),
                 ('imageLink', models.CharField(max_length=512)),
                 ('textSnippet', models.CharField(max_length=1024)),
+                ('description', models.CharField(max_length=2048)),
                 ('webReaderLink', models.CharField(max_length=512)),
                 ('categories', models.CharField(max_length=128)),
             ],
@@ -109,8 +110,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('topic', models.CharField(max_length=32)),
-                ('date', models.DateField()),
+                ('date', models.DateTimeField()),
                 ('book', models.ManyToManyField(to='searchtool.BookItem')),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },

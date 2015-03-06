@@ -11,7 +11,7 @@ def daoSaveBookInQuery(book, queryid):
     q = Query.objects.get(id=queryid)
     b = BookItem.objects.get_or_create(bookid=book['id'], title=book['title'], authors=book['authors'], setLink=book['setLink'],
              publishedDate=book['publishedDate'], imageLink=book['image'], textSnippet=book['textSnippet'],
-             webReaderLink=book['webReaderLink'], categories=book['categories'])
+             webReaderLink=book['webReaderLink'], description=book['description'], categories=book['categories'])
     b[0].save();
     h = History.objects.get_or_create(bookid=book['id'], query=q)
     h[0].save()
@@ -108,9 +108,9 @@ def daoGetTopicByUser(username):
 def daoGetAllTopic():
     return Topic.objects.all()
 
-def daoGetImage(bookid):
+def daoGetBookByID(bookid):
     b = BookItem.objects.get(bookid=bookid)
-    return b.imageLink
+    return b
 
 # Get topic according to id
 def daoGetTopicByID(topicid):

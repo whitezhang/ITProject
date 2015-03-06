@@ -20,6 +20,9 @@ def bookJSONParser(query):
         volumeInfo = item['volumeInfo']
         book['title'] = volumeInfo['title'].encode('utf-8')
 
+        if 'description' in volumeInfo:
+            book['description'] = volumeInfo['description'].encode('utf-8')
+
         book['authors'] = ''
         for info in volumeInfo['authors']:
             book['authors'] += ', '+info.encode('utf-8')
@@ -43,10 +46,8 @@ def bookJSONParser(query):
         book['webReaderLink'] = accessInfo['webReaderLink'].encode('utf-8')
         book_list.append(book)
     num = 50
-    print book_list[0]
     if len(book_list) < 50:
         num = len(book_list)
-    print len(book_list)
     return book_list[:num]
 
 

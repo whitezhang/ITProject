@@ -56,9 +56,10 @@
 
 <div align="center">
     <h1>{{ book.title }}</h1>
-    <p style="display:inline">{{ book.authors }}</p>
-    <p style="display:inline">{{ book.publishedDate }}</p>
-    <h3>{{ book.reviews }} Reviews</h3>
+    <h3 style="display:inline">{{ book.authors }}</h3>
+    <h3 style="display:inline">{{ book.publishedDate }}</h3>
+    <h4>{{ book.reviews }} Reviews</h4>
+    <p>{{ book.description }}</p>
     <img src="{{ book.image }}"/>
 
     <!--Rating-->

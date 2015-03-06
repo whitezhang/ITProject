@@ -6,7 +6,7 @@
 <div class="content-mid">
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="/searchtool/index/"> Home </a></li>
-        <li role="presentation"><a href="/searchtool/alltopics/"> All Topics </a></li>
+        <li role="presentation" class="active"><a href="/searchtool/alltopics/"> All Topics </a></li>
         {% if user.is_authenticated %}
         <li role="presentation"><a href="/searchtool/mytopics/"> My Topics </a></li>
         {% endif %}
@@ -16,19 +16,21 @@
 
 <!--block main_content-->
 {% block main_content %}
-<table class="table table-striped table-hover content-mid">
+<table class="table table-striped table-hover topic-title">
     <thead>
     <tr>
         <th>Topic</th>
         <th>Owner</th>
+        <th>Date</th>
     </tr>
     </thead>
     <tbody>
     {% if topic_list %}
     <tr class="active">
         {% for topic in topic_list %}
-        <td><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
+        <td width="230px"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
         <td>{{ topic.user.username }}</td>
+        <td width="330px">{{ topic.date }}</td>
         {% endfor %}
     </tr>
     {% endif %}
