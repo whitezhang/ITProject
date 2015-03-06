@@ -5,9 +5,9 @@ from django.template import RequestContext
 
 from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
-    daoBookIsLiked, daoSaveLikedBook, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
-    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopic,\
-    daoGetAllTopic, daoGetImage
+    daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
+    daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
+    daoGetAllTopic, daoGetImage, daoGetTopicByID
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser
@@ -62,7 +62,7 @@ def allTopics(request):
     return render(request, 'searchtool/alltopics.html', {'topic_list': topicList})
 
 def myTopics(request):
-    topicList = daoGetTopic(request.user.username)
+    topicList = daoGetTopicByUser(request.user.username)
     return render(request, 'searchtool/mytopics.html', {'topic_list': topicList})
 
 # Logout
@@ -85,14 +85,14 @@ def search(request):
         query = Query(query, User.objects.get_or_create(username='guest', password='guest'))
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
 
-def goto(request):
+def gotoBook(request):
     book = ast.literal_eval(request.POST['book'])
     if request.user.is_authenticated() == True:
         # print request.user.username
         daoSaveBookInQuery(book, request.POST['queryid'])
     # Redirect to another page
     # print request
-    return HttpResponseRedirect('/searchtool/book?id=%s&&title=%s&&authors=%s&&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
+    return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
     # Discarded
     # print 'goto: ', book['webReaderLink']
     # return HttpResponseRedirect(book['webReaderLink'])
@@ -153,3 +153,22 @@ def createTopic(request):
     topicTitle = request.POST['topictitle']
     daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
     return HttpResponse(True)
+
+# show topic according to the topic id
+def showTopic(request):
+    topic = daoGetTopicByID(request.GET['id'])
+    book = []
+    for b in topic.book.all():
+        item = {}
+        item['title'] = b.title
+        item['webReaderLink'] = b.webReaderLink
+        item['image'] = b.imageLink
+        book.append(item)
+    topicInfo = {}
+    topicInfo['id'] = topic.id
+    topicInfo['date'] = topic.date
+    topicInfo['topic'] = topic.topic
+    topicInfo['user'] = topic.user.username
+    topicInfo['book'] = book
+    print topicInfo
+    return render(request, 'searchtool/topic.html', {'topic_info': topicInfo})

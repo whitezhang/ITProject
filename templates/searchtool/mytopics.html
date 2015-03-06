@@ -2,7 +2,6 @@
 
 {% load staticfiles %}
 
-
 {% block tab %}
 <div class="content-mid">
     <ul class="nav nav-tabs">
@@ -20,7 +19,6 @@
 <table class="table table-striped table-hover content-mid">
     <thead>
     <tr>
-        <!--<th>#</th>-->
         <th>Topic</th>
         <th>Owner</th>
     </tr>
@@ -29,8 +27,7 @@
     {% if topic_list %}
     <tr class="active">
         {% for topic in topic_list %}
-        <!--<td>{{ index }}</td>-->
-        <td>{{ topic.topic }}</td>
+        <td><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
         <td>{{ topic.user.username }}</td>
         {% endfor %}
     </tr>

@@ -91,16 +91,16 @@ def daoSaveBookInTopic(bookidList, username, topicTitle):
         BookCart.objects.get(bookid=id, user=u).delete()
 
 
-def daoSaveLikedBook(bookid, username):
-    u = User.objects.get(username=username)
-    lb = BookLiked.objects.get_or_create(bookid='Ql6QgWf6i7cE', user=u)
-    lb[0].save()
+# def daoSaveLikedBook(bookid, username):
+#     u = User.objects.get(username=username)
+#     lb = BookLiked.objects.get_or_create(bookid='Ql6QgWf6i7cE', user=u)
+#     lb[0].save()
 
 def daoGetBookReviews(bookid):
     br = BookReview.objects.get(bookid=bookid)
     return br.views
 
-def daoGetTopic(username):
+def daoGetTopicByUser(username):
     u = User.objects.get(username=username)
     topicList = Topic.objects.filter(user=u)
     return topicList
@@ -111,3 +111,7 @@ def daoGetAllTopic():
 def daoGetImage(bookid):
     b = BookItem.objects.get(bookid=bookid)
     return b.imageLink
+
+# Get topic according to id
+def daoGetTopicByID(topicid):
+    return Topic.objects.get(id=topicid)

@@ -272,3 +272,28 @@ body {
     margin-right: auto;
 }
 
+.topic-title {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 21px;
+    color: black;
+    background-color: grey;
+    border-color: white;
+    padding: 2px;
+}
+
+.topic-title {
+    text-align: center;
+}
+
+.topic-title-user {
+    margin-right:10px;
+    text-align: right;
+}
+
+.topic-content {
+    text-align: center;
+}
+

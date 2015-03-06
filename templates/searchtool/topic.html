@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+
 {% block tab %}
 <div class="content-mid">
     <ul class="nav nav-tabs">
@@ -12,26 +13,23 @@
         {% endif %}
     </ul>
 </div>
+
 {% endblock %}
 
-<!--block main_content-->
 {% block main_content %}
-<table class="table table-striped table-hover content-mid">
-    <thead>
-    <tr>
-        <th>Topic</th>
-        <th>Owner</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% if topic_list %}
-    <tr class="active">
-        {% for topic in topic_list %}
-        <td><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
-        <td>{{ topic.user.username }}</td>
+{% if topic_info %}
+    <div class="alert-dismissible topic-title">
+        <h1 class="topic-title-title">{{ topic_info.topic }}</h1>
+        <h5 class="topic-title-user">{{ topic_info.date }}<br>Owner: {{ topic_info.user }}</h5>
+    </div>
+    {% if topic_info.book %}
+        <div class="topic-content">
+        {% for book in topic_info.book %}
+            <h4>{{ book.title }}</h4>
+            <img src="{{ book.image }}"/>
+            <a href="{{ book.webReaderLink }}">Preread</a>
         {% endfor %}
-    </tr>
+        </div>
     {% endif %}
-    </tbody>
-</table>
+{% endif %}
 {% endblock %}

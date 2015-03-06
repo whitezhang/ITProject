@@ -42,7 +42,7 @@
                             <div class="post-hover text-center">
                                 <div class="inside">
                                     <i class="fa fa-plus"></i>
-                                    <form id="webReaderLink" method="post" action="/searchtool/goto/">
+                                    <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
                                         {% csrf_token %}
                                         <input type="hidden" name="queryid" value="{{ queryid }}"/>
                                         <input type="hidden" name="book" value="{{ book }}"/>
