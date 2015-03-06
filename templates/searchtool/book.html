@@ -42,30 +42,12 @@
         });
 	});
 
-    function sendRates(rating) {
-        var bookid = document.getElementById('bookid').value;
-        $.get('/searchtool/ratebook', {bookid: bookid, rating: rating}, function(data) {
-            $('#test').html(data);
-        });
-    };
-
     function collectBook() {
         var bookid = document.getElementById('bookid').value;
         $.get('/searchtool/collectbook', {bookid: bookid}, function() {
             $('#collected').val('True')
             $('#collected').removeClass('linkButton');
             $('#collected').addClass('StandardWord');
-            document.getElementById('liked').type='text';
-        });
-    };
-
-    function sendLike() {
-        var bookid = document.getElementById('bookid').value;
-        $.get('/searchtool/likebook', {bookid: bookid}, function() {
-            $('#liked').val('True')
-            $('#liked').removeClass('linkButton');
-            $('#liked').addClass('StandardWord');
-            document.getElementById('liked').type='text';
         });
     };
 
@@ -73,7 +55,6 @@
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
 
 <div align="center">
-    <!--<h1>{{ book.id }}</h1>-->
     <h1>{{ book.title }}</h1>
     <p style="display:inline">{{ book.authors }}</p>
     <p style="display:inline">{{ book.publishedDate }}</p>

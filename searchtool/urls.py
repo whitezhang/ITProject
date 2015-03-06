@@ -15,6 +15,7 @@ urlpatterns = patterns('',
         url(r'^collectbook/$', views.collectBook, name='collectbook'),
         url(r'^addtopic/$', views.addTopic, name='addtopic'),
         url(r'^createtopic/$', views.createTopic, name='createtopic'),
+        url(r'^removefromcart/$', views.removeFromCart, name='removefromcart'),
 
         url(r'^topic', views.showTopic, name='showTopic'),
         url(r'^book$', views.showBook, name='book'),

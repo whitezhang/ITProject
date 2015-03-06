@@ -7,7 +7,7 @@ from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
-    daoGetAllTopic, daoGetImage, daoGetTopicByID
+    daoGetAllTopic, daoGetImage, daoGetTopicByID, daoRemoveFromCartByID
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser
@@ -172,3 +172,7 @@ def showTopic(request):
     topicInfo['book'] = book
     print topicInfo
     return render(request, 'searchtool/topic.html', {'topic_info': topicInfo})
+
+def removeFromCart(request):
+    daoRemoveFromCartByID(request.GET['bookid'], request.user.username)
+    return HttpResponse(True)

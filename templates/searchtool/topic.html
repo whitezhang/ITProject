@@ -18,7 +18,7 @@
 
 {% block main_content %}
 {% if topic_info %}
-    <div class="alert-dismissible topic-title">
+    <div class="alert-dismissible topic-title topic-title-text">
         <h1 class="topic-title-title">{{ topic_info.topic }}</h1>
         <h5 class="topic-title-user">{{ topic_info.date }}<br>Owner: {{ topic_info.user }}</h5>
     </div>
@@ -27,7 +27,7 @@
         {% for book in topic_info.book %}
             <h4>{{ book.title }}</h4>
             <img src="{{ book.image }}"/>
-            <a href="{{ book.webReaderLink }}">Preread</a>
+            <a href="{{ book.webReaderLink }}">Preview</a>
         {% endfor %}
         </div>
     {% endif %}

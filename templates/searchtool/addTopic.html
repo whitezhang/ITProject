@@ -2,21 +2,55 @@
 
 {% load staticfiles %}
 
+{% block head %}
+<script type="text/javascript">
+    function removeItem(bookid) {
+        $(document).on('click', '#removeItem', function() {
+            $(this).closest('tr').remove();
+            $.get('/searchtool/removefromcart', {bookid: bookid}, function() {
+                
+            });;
+        });
+    }
+</script>
+{% endblock %}
+
 <!--Block main_content-->
 {% block main_content %}
-    {% if book_list %}
-        <form id="bookCart" method="post" action="/searchtool/createtopic/">
-            {% csrf_token %}
-            {% for book in book_list %}
-            <input id="{{ book.bookid }}" type="checkbox" name="bookid" value="{{ book.bookid }}"/>
-            <h4>{{ book.title }}</h4>
-            <h4>{{ book.authors }}</h4>
-            <h4>{{ book.publishedDate }}</h4>
-            <img src="{{ book.imageLink }}"/>
-            <br>
-            {% endfor %}
-            <input type="text" name="topictitle"/>
-            <input class="linkButton" type="submit" name="createTopic" value="Create"/>
-        </form>
-    {% endif %}
+{% if book_list %}
+<form id="bookCart" method="post" action="/searchtool/createtopic/">
+    {% csrf_token %}
+    <table class="table table-striped table-hover topic-title">
+        <thead>
+        <tr>
+            <th></th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Authors</th>
+            <th>Published Date</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in book_list %}
+        <tr id="{{ book.bookid }}" class="active">
+            <td><input id="{{ book.bookid }}" type="checkbox" name="bookid" value="{{ book.bookid }}"/></td>
+            <td><img src="{{ book.imageLink }}" width="20px"/></td>
+            <td><h4>{{ book.title }}</h4></td>
+            <td><h4>{{ book.authors }}</h4></td>
+            <td><h4>{{ book.publishedDate }}</h4></td>
+            <td><a id="removeItem" onclick="javascript:removeItem('{{ book.bookid }}')"><h4>Remove</h4></a></td>
+        </tr>
+        <br>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="create-topic">
+        <input type="text" name="topictitle" value="Enter Your Topic Name"
+               onFocus="if(value==defaultValue){value='';this.style.color='#000'}"
+               onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+        <input class="linkButton" type="submit" name="createTopic" value="Create"/>
+    </div>
+</form>
+{% endif %}
 {% endblock %}

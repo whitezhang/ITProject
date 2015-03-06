@@ -115,3 +115,9 @@ def daoGetImage(bookid):
 # Get topic according to id
 def daoGetTopicByID(topicid):
     return Topic.objects.get(id=topicid)
+
+def daoRemoveFromCartByID(bookid, username):
+    u = User.objects.get(username=username)
+    BookCart.objects.get(bookid=bookid, user=u).delete()
+
+
