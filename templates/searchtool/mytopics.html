@@ -20,18 +20,18 @@
 <table class="table table-striped table-hover topic-title">
     <thead>
     <tr>
-        <th width="230px">Topic</th>
+        <th class="th-topic">Topic</th>
         <th>Owner</th>
-        <th width="330px">Date</th>
+        <th class="th-date">Date</th>
     </tr>
     </thead>
     <tbody>
     {% if topic_list %}
     <tr class="active">
         {% for topic in topic_list %}
-        <td width="230px"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
+        <td class="th-topic"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
         <td>{{ topic.user.username }}</td>
-        <td width="330px">{{ topic.date }}</td>
+        <td class="th-date">{{ topic.date }}</td>
         {% endfor %}
     </tr>
     {% endif %}

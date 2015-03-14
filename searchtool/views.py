@@ -10,7 +10,7 @@ from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookIn
     daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID
 from searchtool.models import BookCart
 from searchtool.models import Query, User
-from searchtool.app import bookJSONParser
+from searchtool.app import bookJSONParser, relatedBookCrawler
 
 import ast
 
@@ -111,6 +111,8 @@ def showBook(request):
     book['image'] = bookItem.imageLink
     book['description'] = bookItem.description
 
+    # Crawl the related books
+    relatedBook = relatedBookCrawler(book['title'])
     # Session for Collection
     # bookSession = request.session.get('bookCart', [])
     # book['isCollected'] = False
@@ -121,7 +123,7 @@ def showBook(request):
     # print book['isCollected']
     # book['isCollected'] = request.session
     # print book
-    return render(request, 'searchtool/book.html', {'book': book})
+    return render(request, 'searchtool/book.html', {'book': book, 'related_book': relatedBook})
 
 def rateBook(request):
     daoSaveRates(request.GET['bookid'], request.GET['rating'], request.user.username)

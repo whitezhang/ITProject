@@ -45,10 +45,31 @@ def bookJSONParser(query):
         accessInfo = item['accessInfo']
         book['webReaderLink'] = accessInfo['webReaderLink'].encode('utf-8')
         book_list.append(book)
-    num = 50
-    if len(book_list) < 50:
+    num = 9
+    if len(book_list) < 9:
         num = len(book_list)
     return book_list[:num]
 
 
+def relatedBookCrawler(query):
+    related_books = []
+    url = "https://www.googleapis.com/books/v1/volumes?q="+query
+    req = urllib2.Request(url=url)
+    f = urllib2.urlopen(req)
+    content = f.read()
+    jsonData = json.loads(content)
+    # print content
+    jsonData = json.loads(content)
+    # Process the json file
+    totalItems = int(jsonData['totalItems'])
+    items = jsonData['items']
+    for item in items:
+        book = {}
+        volumeInfo = item['volumeInfo']
+        book['title'] = volumeInfo['title'].encode('utf-8')
+        book['image'] = volumeInfo['imageLinks']['thumbnail']
+        if 'description' in volumeInfo:
+            book['description'] = volumeInfo['description'].encode('utf-8')
+        related_books.append(book)
 
+    return related_books

@@ -9,7 +9,7 @@
     font-style: normal;
 }
 
-html,body,div,span,applet,object,iframe,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+html,body,applet,object,iframe,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -301,4 +301,25 @@ body {
     margin-left: auto;
     margin-right: 60px;
     width: 230px;
+}
+
+.th-topic {
+    width: 230px;
+}
+
+.th-date {
+    width: 330px;
+}
+
+.inline-block {
+    width: 130px;
+    height: 200px;
+    margin: 5px;
+    padding: 40px;
+    display: inline-block;
+}
+
+.standard-img {
+    width: 105px;
+    height: 144px;
 }
