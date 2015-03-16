@@ -3,9 +3,9 @@
 /* General Demo Style */
 body{
 	background:#e4ebe9 url(../images/pattern.png) repeat top left;
-	color:#000;
-	font-family: 'PT Sans Narrow', Arial, sans-serif;
-	font-size:12px;
+	color:#888;
+	font-family: 'robotolight';
+	font-size:14px;
 }
 a{
 	color:#000;

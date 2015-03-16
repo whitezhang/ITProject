@@ -4,7 +4,6 @@
 
 <!--Block head-->
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/demo.css'%}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.jscrollpane.css' %}" media="all" />
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
@@ -105,11 +104,11 @@
                             <div class="ca-content-text">
                                 {{ book.description }}
                             </div>
+                            <ul>
+                                <li><a href="#">Collect</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <ul>
-                        <li><a href="#">Collect</a></li>
-                    </ul>
                 </div>
                 {% endfor %}
             {% endif %}
