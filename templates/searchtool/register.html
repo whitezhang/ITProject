@@ -9,26 +9,54 @@
 
 <!-- register -->
 {% block main_content %}
-    <h1>Register with Rango</h1>
+<div align="center">
+    <h1>Register Here</h1>
 
     {% if registered %}
     <strong>thank you for registering!</strong>
-    <a href="/searchtool/">Return to the homepage.</a><br />
+    <a href="/searchtool/">Return to the homepage.</a><br/>
     {% else %}
-    <strong>register here!</strong><br />
 
-    <form id="user_form" method="post" action="/searchtool/register/"
-            enctype="multipart/form-data">
-
+    <form id="user_form" name="thisForm" method="post" action="/searchtool/register/"
+          enctype="multipart/form-data" onsubmit="return formCheck()">
+        <script language="JavaScript" type="text/JavaScript">
+        function formCheck(){
+            if(thisForm.id_username.value == '' || thisForm.id_password.value != thisForm.id_password2.value){
+                alert("Something Wrong? Check again");
+                return false;
+            }
+        return true;
+        }</script>
         {% csrf_token %}
 
         <!-- Display each form. The as_p method wraps each element in a paragraph
              (<p>) element. This ensures each element appears on a new line,
              making everything look neater. -->
-        {{ user_form.as_p }}
+        <div class="form-group">
+            <p class="required"><label for="id_username">Username:</label>
+                <input id="id_username" maxlength="30" name="username" type="text"
+                       placeholder="Enter username"/></p>
+        </div>
+        <div class="form-group">
+            <p class="required"><label for="id_password">Password:</label>
+                <input id="id_password" name="password" type="password"
+                       placeholder="Enter password"/></p>
+        </div>
+        <div class="form-group">
+            <p class="required"><label for="id_password2">Password (again):</label>
+                <input id="id_password2" name="password2" type="password"
+                       placeholder="Enter password again"/></p>
+        </div>
 
         <!-- Provide a button to click to submit the form. -->
-        <input type="submit" name="submit" value="Register" />
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <input class="btn btn-default" type="submit" name="submit" value="Register"/>
+            </div>
+        </div>
+
     </form>
     {% endif %}
+</div>
+
 {% endblock %}

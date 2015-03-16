@@ -64,8 +64,8 @@
     <h3 style="display:inline">{{ book.authors }}</h3>
     <h3 style="display:inline">{{ book.publishedDate }}</h3>
     <h4>{{ book.reviews }} Reviews</h4>
-    <p>{{ book.description }}</p>
     <img src="{{ book.image }}"/>
+    <div class="ca-content-text" align="left">&nbsp;&nbsp;&nbsp;&nbsp;{{ book.description }}</div>
 
     <!--Rating-->
     <p id="rating" style="display: none">{{ book.rating }}</p>
@@ -102,7 +102,7 @@
                             <h6>Abatract</h6>
                             <a href="#" class="ca-close">close</a>
                             <div class="ca-content-text">
-                                {{ book.description }}
+                                    {{ book.description }}
                             </div>
                             <ul>
                                 <li><a href="#">Collect</a></li>
