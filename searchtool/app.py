@@ -21,6 +21,7 @@ def bookJSONParser(query):
     for item in items:
         book = {}
         book['id'] = item['id']
+        print book['id']
         book['setLink'] = 'google.com'
 
         volumeInfo = item['volumeInfo']
@@ -41,7 +42,11 @@ def bookJSONParser(query):
             book['publishedDate'] = volumeInfo['publishedDate']
         else:
             book['publishedDate'] = 'Unknown'
-        book['image'] = volumeInfo['imageLinks']['thumbnail']
+
+        if 'imageLinks' in volumeInfo and 'thumbnail' in volumeInfo['imageLinks']:
+            book['image'] = volumeInfo['imageLinks']['thumbnail']
+        else:
+            book['image'] = 'http://www.rossettiarchive.org/img/9p-1850.virginia.endp4.jpg'
 
         book['categories'] = []
         if 'categories' in volumeInfo:
@@ -55,8 +60,14 @@ def bookJSONParser(query):
         else:
             book['textSnippet'] = "Sorry. This might be a secret. :("
 
-        accessInfo = item['accessInfo']
-        book['webReaderLink'] = accessInfo['webReaderLink'].encode('utf-8')
+        if 'accessInfo' in item:
+            accessInfo = item['accessInfo']
+        else:
+            accessInfo = 'Unknown'
+        if 'webReaderLink' in accessInfo:
+            book['webReaderLink'] = accessInfo['webReaderLink'].encode('utf-8')
+        else:
+            book['webReaderLink'] = 'Unknown'
         book_list.append(book)
     num = 9
     if len(book_list) < 9:
@@ -83,7 +94,10 @@ def relatedBookCrawler(query):
         book = {}
         volumeInfo = item['volumeInfo']
         book['title'] = volumeInfo['title'].encode('utf-8')
-        book['image'] = volumeInfo['imageLinks']['thumbnail']
+        if 'imageLinks' in volumeInfo and 'thumbnail' in volumeInfo['imageLinks']:
+            book['image'] = volumeInfo['imageLinks']['thumbnail']
+        else:
+            book['image'] = 'http://www.rossettiarchive.org/img/9p-1850.virginia.endp4.jpg'
         if 'description' in volumeInfo:
             book['description'] = volumeInfo['description'].encode('utf-8')
         related_books.append(book)
