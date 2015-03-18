@@ -229,12 +229,12 @@ p-description {
     margin-left: 110px;
     padding-top: 5px;
     padding-left: 5px;
-    height: 170px;
+    height: 150px;
     background: white;
 }
 
 .post-e-img {
-    height: 170px;
+    height: 150px;
     width: 110px;
     float: left;
 }
@@ -257,6 +257,9 @@ p-description {
     margin-top:10px;
 }
 
+/*
+    For topic.html
+*/
 .content-mid {
     clear:both;
     width:90%;
@@ -269,20 +272,17 @@ p-description {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 21px;
+    margin-bottom: 10px;
     color: black;
     background-color: grey;
     border-color: white;
     padding: 2px;
-}
-
-.topic-title-text {
     text-align: center;
 }
 
-.topic-title-user {
-    margin-right:10px;
+.topic-user {
     text-align: right;
+    width: 90%;
 }
 
 .topic-content {
@@ -316,6 +316,10 @@ p-description {
     height: 144px;
 }
 
+
+/*
+    For book.html
+*/
 .main-posts .container .row {
 }
 

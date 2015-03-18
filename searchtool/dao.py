@@ -83,13 +83,12 @@ def daoGetBookCartList(username):
 # Then delete these books from cart
 def daoSaveBookInTopic(bookidList, username, topicTitle):
     u = User.objects.get(username=username)
+    t = Topic(topic=topicTitle, date=datetime.datetime.today(), user=u)
+    t.save()
     for id in bookidList:
         b = BookItem.objects.get(bookid=id)
-        t = Topic(topic=topicTitle, date=datetime.datetime.today(), user=u)
-        t.save()
         t.book.add(b)
         BookCart.objects.get(bookid=id, user=u).delete()
-
 
 # def daoSaveLikedBook(bookid, username):
 #     u = User.objects.get(username=username)

@@ -153,6 +153,7 @@ def addTopic(request):
 def createTopic(request):
     bookidList = request.POST.getlist('bookid')
     topicTitle = request.POST['topictitle']
+    print bookidList, topicTitle
     daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
     return HttpResponse(True)
 
@@ -161,18 +162,17 @@ def showTopic(request):
     topic = daoGetTopicByID(request.GET['id'])
     book = []
     for b in topic.book.all():
-        item = {}
-        item['title'] = b.title
-        item['webReaderLink'] = b.webReaderLink
-        item['image'] = b.imageLink
-        book.append(item)
+        # item = {}
+        # item['title'] = b.title
+        # item['webReaderLink'] = b.webReaderLink
+        # item['image'] = b.imageLink
+        book.append(b)
     topicInfo = {}
     topicInfo['id'] = topic.id
     topicInfo['date'] = topic.date
     topicInfo['topic'] = topic.topic
     topicInfo['user'] = topic.user.username
     topicInfo['book'] = book
-    print topicInfo
     return render(request, 'searchtool/topic.html', {'topic_info': topicInfo})
 
 def removeFromCart(request):
