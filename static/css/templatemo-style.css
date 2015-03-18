@@ -220,17 +220,15 @@ p-description {
      cursor: pointer;
 }
 
-.StandardWord {
-     background: white;
+.standardWord {
      border: none;
-     cursor: pointer;
+     background: none;
 }
 
 .post-e-text {
-    position: relative;
-    bottom: 170px;
-    left: 115px;
-    width: 230px;
+    margin-left: 110px;
+    padding-top: 5px;
+    padding-left: 5px;
     height: 170px;
     background: white;
 }
@@ -238,10 +236,14 @@ p-description {
 .post-e-img {
     height: 170px;
     width: 110px;
+    float: left;
 }
 
 .gsearch {
     text-align:center;
+}
+#btn-search {
+    width: 80px;
 }
 
 .lib-img {
@@ -312,4 +314,43 @@ p-description {
 .standard-img {
     width: 105px;
     height: 144px;
+}
+
+.main-posts .container .row {
+}
+
+.main-posts .container .row .bookdetail {
+    height: 288px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+}
+
+.main-posts .container .row .bookdetail .rating-coll{
+    bottom: 0px;
+    right: 65px;
+    position: absolute;
+}
+
+.main-posts .container .row .bookdetail .big-img {
+    width: 210px;
+    height: 288px;
+    float: left;
+}
+
+.main-posts .container .row .ca-content-text {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-posts .container .realted-books {
+    font-size: 30px;
+    margin-left: 100px;
+}
+
+.container-fluid .searchbar {
+    margin-top: 15px;
 }

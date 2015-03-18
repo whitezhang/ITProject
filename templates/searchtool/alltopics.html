@@ -26,13 +26,13 @@
     </thead>
     <tbody>
     {% if topic_list %}
+    {% for topic in topic_list %}
     <tr class="active">
-        {% for topic in topic_list %}
         <td class="th-topic"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
         <td>{{ topic.user.username }}</td>
         <td class="th-date">{{ topic.date }}</td>
-        {% endfor %}
     </tr>
+    {% endfor %}
     {% endif %}
     </tbody>
 </table>

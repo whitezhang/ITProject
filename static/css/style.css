@@ -1,7 +1,7 @@
 /* Circular Content Carousel Style */
 .ca-container{
 	position:relative;
-	margin:25px auto 20px auto;
+	margin:2px auto 20px auto;
 	width:990px;
 	height:280px;
 }
@@ -136,11 +136,11 @@
 	overflow:hidden;
 }
 .ca-content-text{
-	font-size: 12px;
+	font-size: 16px;
 	font-style: italic;
 	font-family: "Georgia","Times New Roman",serif;
-	margin:2px 15px;
-	padding:2px 20px;
+	margin:10px 15px;
+	padding:10px 20px;
 	line-height:24px;
 }
 .ca-content-text p{

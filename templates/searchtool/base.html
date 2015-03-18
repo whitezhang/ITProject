@@ -6,7 +6,7 @@
     <title> Searching From Here </title>
     <link href="http://bootswatch.com/cosmo/bootstrap.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css'%}"/>
     <!--From getbootstrap.com-->
     <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">-->
@@ -20,7 +20,7 @@
     <!--Discard-->
     <!--<script type="text/javascript" src="{% static 'js/googlesearch.js' %}"></script>-->
     <!--<script src="https://www.google.com/jsapi?key=ABQIAAAAFEyVt-pBJaTXzM__EKlCrBTsyyvZhuBjP1YLRoRPwle1bnzSQRQBJp693I-9cLRWqwHDWCO_xmGezQ"-->
-            <!--type="text/javascript"></script>-->
+    <!--type="text/javascript"></script>-->
     <!--<script type="text/javascript">-->
     <!--google.load("search", "1", {"language" : "en"});-->
     <!--google.setOnLoadCallback(initialize);-->
@@ -41,7 +41,8 @@
 
                 {% if user.is_authenticated %}
                 <ul class="nav navbar-nav lib-title">
-                    <li class="lead" style="position:relative; top:10px"><p margin="100px"> Hello {{user.username}} </p></li>
+                    <li class="lead" style="position:relative; top:10px"><p margin="100px"> Hello {{user.username}} </p>
+                    </li>
                     <li><a class="btn btn-default" href="/searchtool/profile/">Profile</a></li>
                     <li><a class="btn btn-default" href="/searchtool/addtopic">Cart</a></li>
                     <!--<input type="button" class="btn btn-default" name="Profile" value="Profile"-->
@@ -62,6 +63,15 @@
                 </ul>
                 <!-- use JavaScript to replace-->
                 {% endif%}
+            </div>
+            <div class="searchbar">
+                <form id="search" class="gsearch navbar-form" method="get" action="/searchtool/search">
+                    {% csrf_token %}
+                    <input class="form-group form-control" type="text" name="query" value="Search From Here" size="50"
+                           onFocus="if(value==defaultValue){value='';this.style.color='#000'}"
+                           onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+                    <input id="btn-search" class="btn btn-default" type="submit" name="GSearch" value="Go"/>
+                </form>
             </div>
         </div>
     </nav>
@@ -91,8 +101,8 @@
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!--<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>-->
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 
