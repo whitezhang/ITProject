@@ -61,15 +61,13 @@
                 {% endfor %}
 
                 {% else %}
+                {% if categories %}
                 <div id="tagcloud">
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
-                    <a href="#">Test</a>
+                    {% for cate in categories %}
+                    <a href="#">{{ cate }}</a>
+                    {% endfor %}
                 </div>
+                {% endif %}
                 {% if popular_books%}
                 <div class="right-book">
                 {% for book in popular_books %}

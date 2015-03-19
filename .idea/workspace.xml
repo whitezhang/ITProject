@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bcb0b117-e1cd-4f50-ae77-01ba98ba8ffa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/addTopic.html" afterPath="$PROJECT_DIR$/templates/searchtool/addTopic.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/base.html" afterPath="$PROJECT_DIR$/templates/searchtool/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/dao.py" afterPath="$PROJECT_DIR$/searchtool/dao.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/demo.css" afterPath="$PROJECT_DIR$/static/css/demo.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/index.html" afterPath="$PROJECT_DIR$/templates/searchtool/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/reset.css" afterPath="$PROJECT_DIR$/static/css/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/templatemo-style.css" afterPath="$PROJECT_DIR$/static/css/templatemo-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/topic.html" afterPath="$PROJECT_DIR$/templates/searchtool/topic.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/views.py" afterPath="$PROJECT_DIR$/searchtool/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="searchWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,27 +32,23 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/searchtool/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2715">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2745">
+              <caret line="36" column="112" selection-start-line="36" selection-start-column="112" selection-end-line="36" selection-end-column="112" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#4843#5030#0" expanded="false" />
-                <element signature="e#5408#5513#0" expanded="false" />
+                <element signature="e#4935#5122#0" expanded="false" />
+                <element signature="e#5500#5605#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/searchtool/book.html">
+      <file leaf-file-name="dao.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="18.125" vertical-offset="1695" max-vertical-offset="2490">
-              <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.9078341" vertical-offset="1119" max-vertical-offset="2040">
+              <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,7 +56,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1875">
+            <state vertical-scroll-proportion="11.25" vertical-offset="420" max-vertical-offset="1875">
               <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#2;n#div#0;n#nav#0;n#head#0;n#html#0;n#!!top" expanded="true" />
@@ -76,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="templatemo-style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="templatemo-style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.013824885" vertical-offset="5034" max-vertical-offset="5685">
-              <caret line="335" column="15" selection-start-line="335" selection-start-column="15" selection-end-line="335" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5034" max-vertical-offset="5685">
+              <caret line="349" column="22" selection-start-line="349" selection-start-column="22" selection-end-line="349" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -89,31 +78,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.875" vertical-offset="0" max-vertical-offset="1425">
-              <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+            <state vertical-scroll-proportion="-10.5" vertical-offset="738" max-vertical-offset="1395">
+              <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tagcloud.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-              <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addTopic.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/searchtool/addTopic.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.25" vertical-offset="438" max-vertical-offset="1065">
-              <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -150,8 +117,6 @@
         <option value="$PROJECT_DIR$/templates/searchtool/alltopics.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/topic.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/addTopic.html" />
-        <option value="$PROJECT_DIR$/searchtool/views.py" />
-        <option value="$PROJECT_DIR$/searchtool/dao.py" />
         <option value="$PROJECT_DIR$/static/css/demo.css" />
         <option value="$PROJECT_DIR$/static/css/reset.css" />
         <option value="$PROJECT_DIR$/static/js/jquery.windstagball.js" />
@@ -159,8 +124,10 @@
         <option value="$PROJECT_DIR$/static/css/huiyi8.css" />
         <option value="$PROJECT_DIR$/static/css/tagcloud.css" />
         <option value="$PROJECT_DIR$/static/css/templatemo-style.css" />
-        <option value="$PROJECT_DIR$/templates/searchtool/index.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/base.html" />
+        <option value="$PROJECT_DIR$/searchtool/views.py" />
+        <option value="$PROJECT_DIR$/templates/searchtool/index.html" />
+        <option value="$PROJECT_DIR$/searchtool/dao.py" />
       </list>
     </option>
   </component>
@@ -545,8 +512,8 @@
           <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#4843#5030#0" expanded="false" />
-            <element signature="e#5408#5513#0" expanded="false" />
+            <element signature="e#4935#5122#0" expanded="false" />
+            <element signature="e#5500#5605#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,8 +538,8 @@
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#4843#5030#0" expanded="false" />
-            <element signature="e#5408#5513#0" expanded="false" />
+            <element signature="e#4935#5122#0" expanded="false" />
+            <element signature="e#5500#5605#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -832,38 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3548387" vertical-offset="429" max-vertical-offset="1995">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2715">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#4843#5030#0" expanded="false" />
-            <element signature="e#5408#5513#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/tagcloud.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2694" max-vertical-offset="3645">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.516129" vertical-offset="1194" max-vertical-offset="1905">
-          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -886,9 +825,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchtool/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1995">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/book.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.125" vertical-offset="1695" max-vertical-offset="2490">
+        <state vertical-scroll-proportion="-52.5" vertical-offset="0" max-vertical-offset="2490">
           <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -898,17 +853,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        <state vertical-scroll-proportion="-10.5" vertical-offset="738" max-vertical-offset="1395">
+          <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5034" max-vertical-offset="5685">
+          <caret line="349" column="22" selection-start-line="349" selection-start-column="22" selection-end-line="349" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1875">
+        <state vertical-scroll-proportion="11.25" vertical-offset="420" max-vertical-offset="1875">
           <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#2;n#div#0;n#nav#0;n#head#0;n#html#0;n#!!top" expanded="true" />
@@ -916,18 +879,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
+    <entry file="file://$PROJECT_DIR$/searchtool/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.875" vertical-offset="0" max-vertical-offset="1425">
-          <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2745">
+          <caret line="36" column="112" selection-start-line="36" selection-start-column="112" selection-end-line="36" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#4935#5122#0" expanded="false" />
+            <element signature="e#5500#5605#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
+    <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.013824885" vertical-offset="5034" max-vertical-offset="5685">
-          <caret line="335" column="15" selection-start-line="335" selection-start-column="15" selection-end-line="335" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.9078341" vertical-offset="1119" max-vertical-offset="2040">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
