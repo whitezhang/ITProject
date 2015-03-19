@@ -70,13 +70,24 @@
                 {% endif %}
                 {% if popular_books%}
                 <div class="right-book">
-                {% for book in popular_books %}
-                {{ book.title }}
-                {{ book.views }}
-                <br>
-                {% endfor %}
+                    <table class="right-table table table-striped table-hover ">
+                        <thead>
+                        <tr>
+                            <th class="th-topic">Topic</th>
+                            <th>Owner</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for book in popular_books %}
+                        <tr class="active">
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.views }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
                 </div>
-                {% endif %}
                 {% endif %}
             </div>
         </div>

@@ -371,3 +371,7 @@ Index
 .right-book {
     margin-top:10px;
 }
+.right-table {
+    width: 50%;
+    background-color: black;
+}

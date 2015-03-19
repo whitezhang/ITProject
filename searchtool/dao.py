@@ -111,9 +111,9 @@ def daoGetAllCategories():
     value_list = BookItem.objects.values_list('categories', flat=True).distinct()
     ret_list = []
     for value in value_list:
+        # Split method needs test
         for item in value[2:-2].split("', '"):
             ret_list.append(item)
-    # return value_list
     return ret_list
 
 def daoGetAllTopic():
