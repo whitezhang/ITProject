@@ -2,7 +2,65 @@
 import urllib2
 import json
 import re
+import random
 
+# Alchemy API
+def taxonomyDecoder(bookInfo):
+    taxList = []
+    bookInfo = ["Computer", "Java", "C%20program"]
+    AlchemyKey = "3f07faf2bf9dc29f4a0d40072dfc09e6e3e2fbd9"
+    for info in bookInfo:
+        url = "http://access.alchemyapi.com/calls/text/TextGetRankedTaxonomy?apikey="+AlchemyKey+"&outputMode=json&text="+info
+        req = urllib2.Request(url=url)
+        f = urllib2.urlopen(req)
+        content = f.read()
+        jsonData = json.loads(content)
+        # Processing main body of data
+        if jsonData['status'] == 'OK':
+            if 'taxonomy' in jsonData:
+                taxonomy = jsonData['taxonomy']
+                # Just need the first one
+                # /technology and computing/hardware/computer etc.
+                taxList.append(taxonomy[0]['label'])
+    return taxList
+
+def getChildren(node, links):
+    return [x[1] for x in links if x[0] == node]
+
+def getNodes(index, name, links):
+    jsonNode = {}
+    jsonNode['id'] = index
+    jsonNode['name'] = name
+    children = getChildren(name, links)
+    if children:
+        jsonNode['children'] = [getNodes(index+random.randint(1, 10000), child, links) for child in children]
+    return jsonNode
+
+def taxonomyGenerator(query):
+    links = []
+    taxList = taxonomyDecoder(query)
+    print taxList
+    for taxonomy in taxList:
+        # taxonomy = '/technology and computing/hardware/computer'
+        tax = taxonomy.encode('utf-8').split('/')
+        for index in range(len(tax)-2):
+            links.append((tax[index+1], tax[index+2]))
+    # Remove the duplicated item
+    uniqueLinks = []
+    [uniqueLinks.append(item) for item in links if item not in uniqueLinks]
+    parents, children = zip(*uniqueLinks)
+    rootNodes = {x for x in parents if x not in children}
+    for node in rootNodes:
+        uniqueLinks.append(('Me', node))
+    print uniqueLinks
+    ontologyJSON = getNodes(0, 'Me', uniqueLinks)
+    print json.dumps(ontologyJSON, indent=4)
+    return ontologyJSON
+
+
+
+
+# Google Book API
 def converter(text):
     text = text.replace('&nbsp;', ',').replace('&quot;', '"').replace('&#39;', "'")
     pattern = re.compile('<[^>]+>')

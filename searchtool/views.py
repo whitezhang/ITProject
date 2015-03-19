@@ -11,7 +11,7 @@ from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookIn
     daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs
 from searchtool.models import BookCart
 from searchtool.models import Query, User
-from searchtool.app import bookJSONParser, relatedBookCrawler
+from searchtool.app import bookJSONParser, relatedBookCrawler, taxonomyGenerator
 
 import ast
 
@@ -64,7 +64,10 @@ def register(request):
             {'user_form': user_form, 'registered': registered} )
 
 def profile(request):
-    return render(request, 'searchtool/profile.html')
+    ontologyJSON = taxonomyGenerator('test')
+    # ontologyJSON = '{id:190,name:"PearlJam",children:[{id:84,name:"PearlJam&amp;CypressHill",children:[{id:82,name:"CypressHill",children:[]}]},],}'
+    # ontologyJSON = '{name:"PearlJam",children:[{name:"PearlJam&amp;CypressHill",children:[{name:"CypressHill",children:[]}]},],}'
+    return render(request, 'searchtool/profile.html', {'ontologyJSON': ontologyJSON})
 
 def allTopics(request):
     topicList = daoGetAllTopic()
