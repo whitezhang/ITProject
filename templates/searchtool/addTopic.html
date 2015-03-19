@@ -1,3 +1,5 @@
+<!--This is Cart-->
+
 {% extends 'searchtool/base.html' %}
 
 {% load staticfiles %}
@@ -53,6 +55,12 @@
     </div>
 </form>
 {% else %}
-<h4>Your Personal Cart is empty</h4>
+<div class="main-posts">
+    <div class="container">
+        <h2>Your Personal Cart is empty</h2>
+        <p>Your Personal Cart lives to serve. Give it purpose — fill it with books.</p>
+        <p>Learn about the <a href="#">today's popular books. LOVE IT!</a></p>
+    </div>
+</div>
 {% endif %}
 {% endblock %}

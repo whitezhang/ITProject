@@ -18,56 +18,48 @@
 
 {% block main_content %}
 {% if topic_info %}
-    <div class="alert-dismissible topic-title">
-        <h1>{{ topic_info.topic }}</h1>
-    </div>
+<div class="alert-dismissible topic-title">
+    <h1>{{ topic_info.topic }}</h1>
+</div>
 
-    <h5 class="topic-user">{{ topic_info.date }}<br>Owner: {{ topic_info.user }}</h5>
-    {% if topic_info.book %}
-        <div class="topic-content">
-        {% for book in topic_info.book %}
-            <h4>{{ book.title }}</h4>
-            <img src="{{ book.image }}"/>
-            <a href="#">Detail</a>
-        {% endfor %}
-        </div>
-
+<h5 class="topic-user">{{ topic_info.date }}<br>Owner: {{ topic_info.user }}</h5>
 <div class="main-posts">
-        <div class="container">
-            <div class="row">
-                <div class="blog-masonry masonry-true">
-                    {% if topic_info.book %}
-                    {% for book in topic_info.book %}
-                    <div class="post-masonry">
-                        <div class="post-thumb">
-                            <img class="post-e-img" src="{{ book.imageLink }}"/>
-                            <div class="post-e-text">
-                                &nbsp;&nbsp;&nbsp;&nbsp;{{ book.description }}
-                            </div>
-                            <div class="title-over">
-                                <h4>{{ book.title }}</h4>
-                            </div>
-                            <div class="post-hover text-center">
-                                <div class="inside">
-                                    <i class="fa fa-plus"></i>
-                                    <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="queryid" value="{{ queryid }}"/>
-                                        <input type="hidden" name="book" value="{{ book }}"/>
-                                        <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
-                                    </form>
-                                    <span>{{ book.authors }}</span>
-                                    <span>{{ book.publishedDate }}</span>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <div class="blog-masonry masonry-true">
+                {% if topic_info.book %}
+                {% for book in topic_info.book %}
+                <div class="post-masonry">
+                    <div class="post-thumb">
+                        <img class="post-e-img" src="{{ book.imageLink }}"/>
+
+                        <div class="post-e-text">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{{ book.description }}
+                        </div>
+                        <div class="title-over">
+                            <h4>{{ book.title }}</h4>
+                        </div>
+                        <div class="post-hover text-center">
+                            <div class="inside">
+                                <i class="fa fa-plus"></i>
+
+                                <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="queryid" value="{{ queryid }}"/>
+                                    <input type="hidden" name="book" value="{{ book }}"/>
+                                    <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
+                                </form>
+                                <span>{{ book.authors }}</span>
+                                <span>{{ book.publishedDate }}</span>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                    {% endif %}
                 </div>
+                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
-    {% endif %}
+</div>
 {% endif %}
 {% endblock %}

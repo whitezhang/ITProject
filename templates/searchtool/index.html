@@ -4,17 +4,19 @@
 
 <!-- head -->
 {% block head %}
+<script type="text/javascript" src="{% static 'js/tagcloud.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/tagcloud.css' %}"/>
 {% endblock %}
 
 <!-- headline -->
 {% block headline %}
-    <!--<form id="search" class="gsearch navbar-form" method="get" action="/searchtool/search">-->
-    <!--{% csrf_token %}-->
-    <!--<input class="form-group form-control" type="text" name="query" value="Search From Here" size="50"-->
-           <!--onFocus="if(value==defaultValue){value='';this.style.color='#000'}"-->
-           <!--onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>-->
-    <!--<input class="btn btn-default" type="submit" name="GSearch" value="Go"/>-->
-    <!--</form>-->
+<!--<form id="search" class="gsearch navbar-form" method="get" action="/searchtool/search">-->
+<!--{% csrf_token %}-->
+<!--<input class="form-group form-control" type="text" name="query" value="Search From Here" size="50"-->
+<!--onFocus="if(value==defaultValue){value='';this.style.color='#000'}"-->
+<!--onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>-->
+<!--<input class="btn btn-default" type="submit" name="GSearch" value="Go"/>-->
+<!--</form>-->
 {% endblock %}
 
 <!-- guideline -->
@@ -24,42 +26,64 @@
 <!-- main_content -->
 {% block main_content %}
 <!--Waterfall Template-->
-    <div class="main-posts">
-        <div class="container">
-            <div class="row">
-                <div class="blog-masonry masonry-true">
-                    {% if book_list %}
-                    {% for book in book_list %}
-                    <div class="post-masonry col-md-4 col-sm-4">
-                        <div class="post-thumb">
-                            <img class="post-e-img" src="{{ book.image }}"/>
-                            <div class="post-e-text">
-                                &nbsp;&nbsp;&nbsp;&nbsp;{{ book.textSnippet }}
-                            </div>
-                            <div class="title-over">
-                                <h4>{{ book.title }}</h4>
-                            </div>
-                            <div class="post-hover text-center">
-                                <div class="inside">
-                                    <i class="fa fa-plus"></i>
-                                    <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="queryid" value="{{ queryid }}"/>
-                                        <input type="hidden" name="book" value="{{ book }}"/>
-                                        <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
-                                    </form>
-                                    <span>{{ book.authors }}</span>
-                                    <span>{{ book.publishedDate }}</span>
-                                </div>
+<div class="main-posts">
+    <div class="container">
+        <div class="row">
+            <div class="blog-masonry masonry-true">
+                {% if book_list %}
+                {% for book in book_list %}
+                <div class="post-masonry col-md-4 col-sm-4">
+                    <div class="post-thumb">
+                        <img class="post-e-img" src="{{ book.image }}"/>
+
+                        <div class="post-e-text">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{{ book.textSnippet }}
+                        </div>
+                        <div class="title-over">
+                            <h4>{{ book.title }}</h4>
+                        </div>
+                        <div class="post-hover text-center">
+                            <div class="inside">
+                                <i class="fa fa-plus"></i>
+
+                                <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="queryid" value="{{ queryid }}"/>
+                                    <input type="hidden" name="book" value="{{ book }}"/>
+                                    <input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>
+                                </form>
+                                <span>{{ book.authors }}</span>
+                                <span>{{ book.publishedDate }}</span>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                    {% endif %}
                 </div>
+                {% endfor %}
+
+                {% else %}
+                <div id="tagcloud">
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                    <a href="#">Test</a>
+                </div>
+                {% if popular_books%}
+                <div class="right-book">
+                {% for book in popular_books %}
+                {{ book.title }}
+                {{ book.views }}
+                <br>
+                {% endfor %}
+                </div>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 

@@ -99,6 +99,9 @@ def daoGetBookReviews(bookid):
     br = BookReview.objects.get(bookid=bookid)
     return br.views
 
+def daoGetReviewedBook():
+    return BookReview.objects.order_by('-views')[:10]
+
 def daoGetTopicByUser(username):
     u = User.objects.get(username=username)
     topicList = Topic.objects.filter(user=u)

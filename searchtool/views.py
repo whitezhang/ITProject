@@ -7,7 +7,7 @@ from searchtool.forms import UserForm
 from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookInTopic, \
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
-    daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID
+    daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID, daoGetReviewedBook
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser, relatedBookCrawler
@@ -16,6 +16,7 @@ import ast
 
 # This is homepage
 def index(request):
+    popularBooks = daoGetReviewedBook()
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -31,7 +32,7 @@ def index(request):
         else:
             return HttpResponse("Invalid")
     else:
-        return render(request, 'searchtool/index.html', {})
+        return render(request, 'searchtool/index.html', {'popular_books': popularBooks})
 
 # Register
 # user UserForm to register
