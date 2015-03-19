@@ -6,16 +6,26 @@ from django.db.models import Sum
 from searchtool.models import Query, UserProfile, BookReview, BookLiked, BookCart, BookRating, BookItem, History, Topic
 import datetime
 
+def daoGetReviewedBookByIDs(IDs):
+    return BookReview.objects.filter(bookid__in=IDs).order_by('-views')[:10]
+
+def daoGetIDsByCategory(category):
+    return BookItem.objects.values_list('bookid', flat=True).filter(categories__icontains=category)
+
 def daoSaveBookInQuery(book, queryid):
     # print queryid
     q = Query.objects.get(id=queryid)
     b = BookItem.objects.get_or_create(bookid=book['id'], title=book['title'], authors=book['authors'], setLink=book['setLink'],
              publishedDate=book['publishedDate'], imageLink=book['image'], textSnippet=book['textSnippet'],
              webReaderLink=book['webReaderLink'], description=book['description'], categories=book['categories'])
-    b[0].save();
+    b[0].save()
     h = History.objects.get_or_create(bookid=book['id'], query=q)
     h[0].save()
-    br = BookReview.objects.get_or_create(bookid=book['id'], title=book['title'])
+    # Save in the BookReview
+    daoSaveBookReview(book['id'], book['title'])
+
+def daoSaveBookReview(bookid, title):
+    br = BookReview.objects.get_or_create(bookid=bookid, title=title)
     # False means not exist in the BookReview
     # BookReview
     if br[1] == False:

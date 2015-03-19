@@ -8,7 +8,7 @@ from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookIn
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
     daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID, daoGetReviewedBook, \
-    daoGetAllCategories
+    daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser, relatedBookCrawler
@@ -17,24 +17,30 @@ import ast
 
 # This is homepage
 def index(request):
-    popularBooks = daoGetReviewedBook()
     categories = daoGetAllCategories()
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-
-        user = authenticate(username=username, password=password)
-
-        if user:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/searchtool/')
-            else:
-                return HttpResponse("You have not active your account")
-        else:
-            return HttpResponse("Invalid")
-    else:
+    if 'categories' in request.GET:
+        IDs = daoGetIDsByCategory(request.GET['categories'])
+        print IDs
+        popularBooks = daoGetReviewedBookByIDs(IDs)
         return render(request, 'searchtool/index.html', {'popular_books': popularBooks, 'categories': categories})
+    else:
+        popularBooks = daoGetReviewedBook()
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+
+            user = authenticate(username=username, password=password)
+
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/searchtool/')
+                else:
+                    return HttpResponse("You have not active your account")
+            else:
+                return HttpResponse("Invalid")
+        else:
+            return render(request, 'searchtool/index.html', {'popular_books': popularBooks, 'categories': categories})
 
 # Register
 # user UserForm to register
@@ -87,13 +93,17 @@ def search(request):
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
 
 def gotoBook(request):
-    book = ast.literal_eval(request.POST['book'])
-    if request.user.is_authenticated() == True:
-        # print request.user.username
-        daoSaveBookInQuery(book, request.POST['queryid'])
-    # Redirect to another page
-    # print request
-    return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
+    if 'book' in request.POST:
+        book = ast.literal_eval(request.POST['book'])
+        if request.user.is_authenticated() == True:
+            # print request.user.username
+            daoSaveBookInQuery(book, request.POST['queryid'])
+        # Redirect to another page
+        # print request
+        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
+    else:
+        daoSaveBookReview(request.GET['id'], request.GET['title'])
+        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s' % (request.GET['id'], request.GET['title']))
     # Discarded
     # print 'goto: ', book['webReaderLink']
     # return HttpResponseRedirect(book['webReaderLink'])
@@ -102,15 +112,20 @@ def showBook(request):
     book = {}
     book['id'] = request.GET['id']
     book['title'] = request.GET['title']
-    book['authors'] = request.GET['authors'].encode('utf-8')
-    book['publishedDate'] = request.GET['publishedDate']
+    bookItem = daoGetBookByID(book['id'])
+
+    if 'authors' in request.GET and 'publishedDate' in request.GET:
+        book['authors'] = request.GET['authors'].encode('utf-8')
+        book['publishedDate'] = request.GET['publishedDate']
+    else:
+        book['authors'] = bookItem.authors
+        book['publishedDate'] = bookItem.publishedDate
     if(daoBookIsCollected(request.GET['id'], request.user.username) == False):
         book['isCollected'] = "Want to Collect?"
     else:
         book['isCollected'] = "Collected"
     book['rating'] = daoCheckRating(request.GET['id'].encode('utf-8'), request.user.username)
     book['reviews'] = daoGetBookReviews(request.GET['id'])
-    bookItem = daoGetBookByID(book['id'])
     book['image'] = bookItem.imageLink
     book['description'] = bookItem.description
 

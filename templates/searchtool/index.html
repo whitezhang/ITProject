@@ -63,14 +63,15 @@
                 {% else %}
                 {% if categories %}
                 <div id="tagcloud">
+                    <a href="/searchtool/index/">Today's Popular</a>
                     {% for cate in categories %}
-                    <a href="#">{{ cate }}</a>
+                    <a href="/searchtool/index?categories={{cate}}">{{ cate }}</a>
                     {% endfor %}
                 </div>
                 {% endif %}
                 {% if popular_books%}
                 <div class="right-book">
-                    <table class="right-table table table-striped table-hover ">
+                    <table class="right-table table table-striped table-hover">
                         <thead>
                         <tr>
                             <th>Book</th>
@@ -80,7 +81,7 @@
                         <tbody>
                         {% for book in popular_books %}
                         <tr class="active">
-                            <td><a href="#">{{ book.title }}</a></td>
+                            <td><a href="/searchtool/gotoBook?id={{book.bookid}}&title={{book.title}}">{{ book.title }}</a></td>
                             <td>{{ book.views }}</td>
                         </tr>
                         {% endfor %}
