@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bcb0b117-e1cd-4f50-ae77-01ba98ba8ffa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/index.html" afterPath="$PROJECT_DIR$/templates/searchtool/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/tagcloud.css" afterPath="$PROJECT_DIR$/static/css/tagcloud.css" />
     </list>
     <ignored path="searchWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,18 +66,28 @@
       <file leaf-file-name="templatemo-style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.666667" vertical-offset="5091" max-vertical-offset="5745">
+            <state vertical-scroll-proportion="-12.555555" vertical-offset="5121" max-vertical-offset="5745">
               <caret line="364" column="25" selection-start-line="364" selection-start-column="25" selection-end-line="364" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tagcloud.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41474655" vertical-offset="0" max-vertical-offset="651">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5933014" vertical-offset="888" max-vertical-offset="1560">
-              <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+            <state vertical-scroll-proportion="-14.25" vertical-offset="888" max-vertical-offset="1560">
+              <caret line="82" column="64" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -138,13 +149,13 @@
         <option value="$PROJECT_DIR$/static/js/jquery.windstagball.js" />
         <option value="$PROJECT_DIR$/static/js/huiyi8.js" />
         <option value="$PROJECT_DIR$/static/css/huiyi8.css" />
-        <option value="$PROJECT_DIR$/static/css/tagcloud.css" />
         <option value="$PROJECT_DIR$/templates/searchtool/base.html" />
         <option value="$PROJECT_DIR$/searchtool/views.py" />
         <option value="$PROJECT_DIR$/searchtool/dao.py" />
         <option value="$PROJECT_DIR$/static/css/reset.css" />
         <option value="$PROJECT_DIR$/static/css/templatemo-style.css" />
         <option value="$PROJECT_DIR$/templates/searchtool/index.html" />
+        <option value="$PROJECT_DIR$/static/css/tagcloud.css" />
       </list>
     </option>
   </component>
@@ -819,14 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/searchtool/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1995">
@@ -901,18 +904,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.25" vertical-offset="888" max-vertical-offset="1560">
+          <caret line="82" column="64" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.666667" vertical-offset="5091" max-vertical-offset="5745">
+        <state vertical-scroll-proportion="-12.555555" vertical-offset="5121" max-vertical-offset="5745">
           <caret line="364" column="25" selection-start-line="364" selection-start-column="25" selection-end-line="364" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
+    <entry file="file://$PROJECT_DIR$/static/css/tagcloud.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5933014" vertical-offset="888" max-vertical-offset="1560">
-          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.41474655" vertical-offset="0" max-vertical-offset="651">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
