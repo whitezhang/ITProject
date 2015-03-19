@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Sum
 from searchtool.models import Query, UserProfile, BookReview, BookLiked, BookCart, BookRating, BookItem, History, Topic
 import datetime
+import operator, collections
 
 def daoGetReviewedBookByIDs(IDs):
     return BookReview.objects.filter(bookid__in=IDs).order_by('-views')[:10]
@@ -117,13 +118,31 @@ def daoGetTopicByUser(username):
     topicList = Topic.objects.filter(user=u)
     return topicList
 
+
+# Get Categories
+# @return 10 most popular categories
 def daoGetAllCategories():
-    value_list = BookItem.objects.values_list('categories', flat=True).distinct()
-    ret_list = []
+    value_list = BookItem.objects.values_list('categories', flat=True)
+    s_value_list = []
     for value in value_list:
-        # Split method needs test
         for item in value[2:-2].split("', '"):
-            ret_list.append(item)
+            s_value_list.append(item.encode('utf-8'))
+
+    count_value_map = {}
+    for value in s_value_list:
+        if value == '':
+            continue
+        if value in count_value_map:
+            count_value_map[value] += 1
+            print count_value_map
+        else:
+            count_value_map[value] = 1
+            print count_value_map
+    ret_list = []
+    for item in collections.Counter(count_value_map).most_common(10):
+        # Split method needs test
+        for cate in item[0].split("', '"):
+            ret_list.append(cate)
     return ret_list
 
 def daoGetAllTopic():
