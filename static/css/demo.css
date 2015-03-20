@@ -2,7 +2,7 @@
 
 /* General Demo Style */
 body{
-	background:#e4ebe9 url(../images/pattern.png) repeat top left;
+	background:#e4ebe9;
 	color:#888;
 	font-family: 'robotolight';
 	font-size:14px;

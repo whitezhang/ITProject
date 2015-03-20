@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcb0b117-e1cd-4f50-ae77-01ba98ba8ffa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/base.css" afterPath="$PROJECT_DIR$/static/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/profile.html" afterPath="$PROJECT_DIR$/templates/searchtool/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/views.py" afterPath="$PROJECT_DIR$/searchtool/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/base.html" afterPath="$PROJECT_DIR$/templates/searchtool/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/demo.css" afterPath="$PROJECT_DIR$/static/css/demo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/templatemo-style.css" afterPath="$PROJECT_DIR$/static/css/templatemo-style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="searchWeb.iws" />
@@ -72,21 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54545456" vertical-offset="228" max-vertical-offset="900">
+            <state vertical-scroll-proportion="-14.25" vertical-offset="228" max-vertical-offset="900">
               <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alltopics.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
+      <file leaf-file-name="demo.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/demo.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.75" vertical-offset="24" max-vertical-offset="675">
-              <caret line="30" column="101" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="101" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -105,8 +104,18 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25" vertical-offset="75" max-vertical-offset="1605">
-              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+            <state vertical-scroll-proportion="-22.375" vertical-offset="963" max-vertical-offset="1665">
+              <caret line="100" column="7" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templatemo-style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8156682" vertical-offset="5184" max-vertical-offset="5895">
+              <caret line="381" column="19" selection-start-line="381" selection-start-column="19" selection-end-line="381" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -151,15 +160,12 @@
         <option value="$PROJECT_DIR$/templates/searchtool/alltopics.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/topic.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/addTopic.html" />
-        <option value="$PROJECT_DIR$/static/css/demo.css" />
         <option value="$PROJECT_DIR$/static/js/jquery.windstagball.js" />
         <option value="$PROJECT_DIR$/static/js/huiyi8.js" />
         <option value="$PROJECT_DIR$/static/css/huiyi8.css" />
         <option value="$PROJECT_DIR$/static/css/reset.css" />
-        <option value="$PROJECT_DIR$/static/css/templatemo-style.css" />
         <option value="$PROJECT_DIR$/static/css/tagcloud.css" />
         <option value="$PROJECT_DIR$/searchtool/urls.py" />
-        <option value="$PROJECT_DIR$/templates/searchtool/base.html" />
         <option value="$PROJECT_DIR$/searchtool/app.py" />
         <option value="$PROJECT_DIR$/static/js/RGraph.js" />
         <option value="$PROJECT_DIR$/templates/searchtool/index.html" />
@@ -167,6 +173,9 @@
         <option value="$PROJECT_DIR$/searchtool/views.py" />
         <option value="$PROJECT_DIR$/static/css/base.css" />
         <option value="$PROJECT_DIR$/templates/searchtool/profile.html" />
+        <option value="$PROJECT_DIR$/static/css/demo.css" />
+        <option value="$PROJECT_DIR$/templates/searchtool/base.html" />
+        <option value="$PROJECT_DIR$/static/css/templatemo-style.css" />
       </list>
     </option>
   </component>
@@ -740,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/demo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39170507" vertical-offset="0" max-vertical-offset="840">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/addTopic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.25" vertical-offset="438" max-vertical-offset="1065">
@@ -765,13 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5092" max-vertical-offset="5745">
-          <caret line="364" column="25" selection-start-line="364" selection-start-column="25" selection-end-line="364" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -852,29 +847,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="75" max-vertical-offset="1605">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18660288" vertical-offset="843" max-vertical-offset="1575">
           <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2700">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="e#10#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,6 +869,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67942584" vertical-offset="24" max-vertical-offset="675">
+          <caret line="30" column="101" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.25" vertical-offset="228" max-vertical-offset="900">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/searchtool/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="3015">
@@ -904,10 +905,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
+    <entry file="file://$PROJECT_DIR$/searchtool/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.75" vertical-offset="24" max-vertical-offset="675">
-          <caret line="30" column="101" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="101" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2700">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding>
+            <element signature="e#10#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.375" vertical-offset="963" max-vertical-offset="1665">
+          <caret line="100" column="7" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -920,10 +931,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
+    <entry file="file://$PROJECT_DIR$/static/css/templatemo-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54545456" vertical-offset="228" max-vertical-offset="900">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.8156682" vertical-offset="5184" max-vertical-offset="5895">
+          <caret line="381" column="19" selection-start-line="381" selection-start-column="19" selection-end-line="381" selection-end-column="19" />
           <folding />
         </state>
       </provider>
