@@ -10,34 +10,41 @@ table {
 #container {
     width: 1000px;
     height: 500px;
-    margin:0 auto;
+    margin:auto auto;
+    margin-top:2px;
     position:relative;
 }
 
-#left-container, 
-#right-container, 
 #center-container {
     height:500px;
+    margin-top:20px;
     position:absolute;
     top:0;
-}
-
-#left-container, #right-container {
-    width:200px;
-    color:#686c70;
-    text-align: left;
-    overflow: auto;
-    background-color:#fff;
-    background-repeat:no-repeat;
-    border-bottom:1px solid #ddd;
 }
 
 #center-container {
     width:500px;
     height:500px;
-    left:200px;
-    background-color:#1a1a1a;
+    left:500px;
     color:#ccc;
+}
+
+.pro-info {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.pro-info h2 {
+    color: black;
+    text-align: center;
+}
+
+#center-container h3 {
+    text-align: center;
+    color: black;
+}
+
+hr.black-rule {
+    border-top: 1px solid black;
 }
 
 .text {

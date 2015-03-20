@@ -22,7 +22,12 @@
 {% block main_content %}
 <body onload="init({{ ontologyJSON }});">
 <div id="container">
+    <div class="pro-info">
+        <h2>{{ user.username }}</h2>
+    </div>
     <div id="center-container">
+        <h3>Recently Focus On</h3>
+        <hr class="black-rule">
         <div id="infovis"></div>
     </div>
 </div>

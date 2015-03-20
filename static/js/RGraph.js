@@ -46,7 +46,7 @@ function init(ontologyJSON){
         background: {
           numberOfCircles: 10,
           CanvasStyles: {
-            strokeStyle: '#888',
+            strokeStyle: '#444',
             fillStyle: 'silver'
           }
         },
@@ -59,7 +59,7 @@ function init(ontologyJSON){
         },
         //Set Node and Edge styles.
         Node: {
-            color: '#fff'
+            color: '#000'
         },
         
         Edge: {
@@ -95,11 +95,11 @@ function init(ontologyJSON){
 
             if (node._depth <= 1) {
                 style.fontSize = "1.3em";
-                style.color = "#ccc";
+                style.color = "#000";
             
             } else if(node._depth == 2){
-                style.fontSize = "0.8em";
-                style.color = "#494949";
+                style.fontSize = "0.9em";
+                style.color = "#555";
             
             } else {
                 style.display = 'none';
