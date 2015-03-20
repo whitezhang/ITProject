@@ -66,7 +66,6 @@ def register(request):
 def profile(request):
     ontologyJSON = taxonomyGenerator('test')
     # ontologyJSON = '{id:190,name:"PearlJam",children:[{id:84,name:"PearlJam&amp;CypressHill",children:[{id:82,name:"CypressHill",children:[]}]},],}'
-    # ontologyJSON = '{name:"PearlJam",children:[{name:"PearlJam&amp;CypressHill",children:[{name:"CypressHill",children:[]}]},],}'
     return render(request, 'searchtool/profile.html', {'ontologyJSON': ontologyJSON})
 
 def allTopics(request):

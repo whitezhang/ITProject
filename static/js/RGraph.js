@@ -40,12 +40,14 @@ function init(ontologyJSON){
     var rgraph = new $jit.RGraph({
         //Where to append the visualization
         injectInto: 'infovis',
-        levelDistance: 100,
+
         //Optional: create a background canvas that plots
         //concentric circles.
         background: {
+          numberOfCircles: 10,
           CanvasStyles: {
-            strokeStyle: '#555'
+            strokeStyle: '#888',
+            fillStyle: 'silver'
           }
         },
         //Add navigation capabilities:
@@ -57,7 +59,7 @@ function init(ontologyJSON){
         },
         //Set Node and Edge styles.
         Node: {
-            color: '#ddeeff'
+            color: '#fff'
         },
         
         Edge: {
@@ -92,7 +94,7 @@ function init(ontologyJSON){
             style.cursor = 'pointer';
 
             if (node._depth <= 1) {
-                style.fontSize = "1.1em";
+                style.fontSize = "1.3em";
                 style.color = "#ccc";
             
             } else if(node._depth == 2){

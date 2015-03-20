@@ -39,10 +39,23 @@ def getNodes(index, name, links):
 def taxonomyGenerator(query):
     links = []
     taxList = taxonomyDecoder(query)
-    print taxList
     for taxonomy in taxList:
         # taxonomy = '/technology and computing/hardware/computer'
         tax = taxonomy.encode('utf-8').split('/')
+        # pre-process the taxonomy, replace space with <br> and set in center
+        for index in range(len(tax)-1):
+            ta = tax[index].split(' ')
+            # Get the maximum length of string
+            maxLen = 0
+            tmpTaxonomy = ''
+            for word in ta:
+                maxLen = max(len(word), maxLen)
+            print maxLen
+            for word in ta:
+                tmpTaxonomy += '&nbsp;'*((maxLen-len(word))/2+2)+word+'<br>'
+            print tmpTaxonomy
+            tax[index] = tmpTaxonomy
+        print tax
         for index in range(len(tax)-2):
             links.append((tax[index+1], tax[index+2]))
     # Remove the duplicated item
@@ -52,9 +65,7 @@ def taxonomyGenerator(query):
     rootNodes = {x for x in parents if x not in children}
     for node in rootNodes:
         uniqueLinks.append(('Me', node))
-    print uniqueLinks
     ontologyJSON = getNodes(0, 'Me', uniqueLinks)
-    print json.dumps(ontologyJSON, indent=4)
     return ontologyJSON
 
 
