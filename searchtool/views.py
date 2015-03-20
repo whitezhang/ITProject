@@ -65,8 +65,9 @@ def register(request):
 
 def profile(request):
     ontologyJSON = taxonomyGenerator('test')
+    topicList = daoGetTopicByUser(request.user.username)
     # ontologyJSON = '{id:190,name:"PearlJam",children:[{id:84,name:"PearlJam&amp;CypressHill",children:[{id:82,name:"CypressHill",children:[]}]},],}'
-    return render(request, 'searchtool/profile.html', {'ontologyJSON': ontologyJSON})
+    return render(request, 'searchtool/profile.html', {'ontologyJSON': ontologyJSON, 'topic_list': topicList})
 
 def allTopics(request):
     topicList = daoGetAllTopic()

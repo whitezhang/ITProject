@@ -25,26 +25,34 @@ table {
 #center-container {
     width:500px;
     height:500px;
-    left:500px;
+    left:510px;
+    margin-top:30px;
+    padding-top:5px;
     color:#ccc;
 }
 
-.pro-info {
+.pro-title {
     box-shadow: 10px 10px 5px #888888;
 }
 
-.pro-info h2 {
+.pro-title h2 {
     color: black;
     text-align: center;
+}
+
+.pro-table {
+    margin-top:30px;
 }
 
 #center-container h3 {
     text-align: center;
     color: black;
+    margin-bottom: 6px;
 }
 
 hr.black-rule {
     border-top: 1px solid black;
+    margin-top:0px;
 }
 
 .text {

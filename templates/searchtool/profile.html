@@ -22,8 +22,28 @@
 {% block main_content %}
 <body onload="init({{ ontologyJSON }});">
 <div id="container">
-    <div class="pro-info">
+    <div class="pro-title">
         <h2>{{ user.username }}</h2>
+    </div>
+    <div class="pro-table">
+        <table class="right-table table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Topics</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            {% if topic_list %}
+            <tbody>
+            {% for topic in topic_list %}
+            <tr class="active">
+                <td><a href="/searchtool/topic?id={{topic.id}}">{{ topic.topic }}</a></td>
+                <td>{{ topic.date }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            {% endif %}
+        </table>
     </div>
     <div id="center-container">
         <h3>Recently Focus On</h3>
