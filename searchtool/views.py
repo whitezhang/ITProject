@@ -141,6 +141,8 @@ def search(request):
     return render(request, 'searchtool/index.html', {'book_list': book_list, 'queryid': query.id})
 
 def gotoBook(request):
+    if request.user.is_authenticated() == False:
+        return render(request, 'searchtool/error.html')
     if 'book' in request.POST:
         book = ast.literal_eval(request.POST['book'])
         if request.user.is_authenticated() == True:
