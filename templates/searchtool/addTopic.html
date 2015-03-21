@@ -43,7 +43,6 @@
             <td><h4>{{ book.publishedDate }}</h4></td>
             <td><a id="removeItem" onclick="javascript:removeItem('{{ book.bookid }}')"><h4>Remove</h4></a></td>
         </tr>
-        <br>
         {% endfor %}
         </tbody>
     </table>
@@ -63,8 +62,4 @@
     </div>
 </div>
 {% endif %}
-<footer>
-    <p>Digital Lib</p>
-    <p>Copyright © 2015-2015 Team I. All Rights Reserved.</p>
-</footer>
 {% endblock %}
