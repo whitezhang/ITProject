@@ -365,6 +365,10 @@ Alltopic
 .table tbody .active td {
     text-align: left;
 }
+
+.pageBar {
+    text-align: center;
+}
 /*
 Index
 */

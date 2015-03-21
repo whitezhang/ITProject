@@ -57,4 +57,24 @@
     {% endif %}
     </tbody>
 </table>
+
+<div class="pageBar">
+<ul class="pagination pagination-sm">
+  <li class="disabled"><a href="#">«</a></li>
+        {% for info in page_info %}
+            {% if info == cur_page %}
+            <li class="active"><a href="/searchtool/topic?page={{cur_page}}">{{cur_page}}</a></li>
+            {% else %}
+            <li><a href="/searchtool/alltopics?page={{info}}">{{info}}</a></li>
+            {% endif %}
+        {% endfor %}
+
+    {% if num_pages > 5 %}
+        <li><a href="#">Next 5 Pages»</a></li>
+    {% else %}
+        <li><a href="#">»</a></li>
+    {% endif %}
+</ul>
+</div>
+
 {% endblock %}

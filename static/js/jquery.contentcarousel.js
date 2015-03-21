@@ -174,7 +174,7 @@
 						if( settings.scroll < 1 )
 							settings.scroll = 1;
 						else if( settings.scroll > 3 )
-							settings.scroll = 3;	
+							settings.scroll = 3;
 						
 						var $navPrev		= $el.find('span.ca-nav-prev'),
 							$navNext		= $el.find('span.ca-nav-next');
