@@ -39,14 +39,27 @@
 </table>
 
 <div class="pageBar">
-<ul class="pagination pagination-sm">
-  <li class="disabled"><a href="#">«</a></li>
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">»</a></li>
-</ul>
+    <ul class="pagination pagination-sm">
+        {% if cur_page == 1%}
+        <li class="disabled"><a href="#">«</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{cur_page|add:'-1'}}">«</a></li>
+        {% endif %}
+
+        {% for info in page_info %}
+        {% if info == cur_page %}
+        <li class="active"><a href="/searchtool/topic?page={{cur_page}}">{{cur_page}}</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{info}}">{{info}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if cur_page == num_pages %}
+        <li class="disabled"><a href="#">»</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{cur_page|add:'1'}}">»</a></li>
+        {% endif %}
+
+    </ul>
 </div>
 {% endblock %}

@@ -75,7 +75,7 @@ def allTopics(request):
     if 'page' in request.GET:
         curPage = int(request.GET['page'])
     numOfTopic = len(topicList)
-    numOfTopicForPage = 12
+    numOfTopicForPage = 10
     # Control the Topic list
     reversedTopicList = []
     for index in range(numOfTopic):
@@ -97,7 +97,30 @@ def allTopics(request):
 
 def myTopics(request):
     topicList = daoGetTopicByUser(request.user.username)
-    return render(request, 'searchtool/mytopics.html', {'topic_list': topicList})
+    curPage = 1
+    if 'page' in request.GET:
+        curPage = int(request.GET['page'])
+    numOfTopic = len(topicList)
+    numOfTopicForPage = 10
+    # Control the Topic list
+    reversedTopicList = []
+    for index in range(numOfTopic):
+        reversedTopicList.append(topicList[numOfTopic-index-1])
+    topicList = reversedTopicList[(curPage-1)*numOfTopicForPage:curPage*numOfTopicForPage]
+    # Control the page
+    numOfPages = numOfTopic/numOfTopicForPage
+    if numOfTopic%numOfTopicForPage != 0:
+        numOfPages += 1
+    if numOfPages > 5:
+        numOfPages = 5
+    if curPage <= 2:
+        pageInfo = range(1,numOfPages+1)
+    elif curPage+1 >= numOfPages:
+        pageInfo = range(numOfPages-4, numOfPages+1)
+    else:
+        pageInfo = range(curPage-2, curPage+3)
+    # return render(request, 'searchtool/mytopics.html', {'topic_list': topicList})
+    return render(request, 'searchtool/mytopics.html', {'topic_list': topicList, 'cur_page': curPage, 'num_pages':numOfPages, 'page_info': pageInfo})
 
 # Logout
 def logoutRequest(request):

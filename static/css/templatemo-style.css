@@ -369,6 +369,12 @@ Alltopic
 .pageBar {
     text-align: center;
 }
+
+.page-index {
+    bottom:0px;
+    position:absolute;
+}
+
 /*
 Index
 */
@@ -397,3 +403,4 @@ footer {
     width: 100%;
     border: 1px groove #aaaaaa;
 }
+
