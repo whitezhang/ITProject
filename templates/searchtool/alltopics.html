@@ -52,7 +52,7 @@
     {% for topic in topic_list %}
     <tr class="active">
         <td class="th-topic"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
-        <td>{{ topic.user.username }}</td>
+        <td><a href="/searchtool/profile?ouser={{topic.user.username}}">{{ topic.user.username }}</a></td>
         <td class="th-date">{{ topic.date }}</td>
     </tr>
     {% endfor %}
