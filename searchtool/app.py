@@ -86,6 +86,8 @@ def bookJSONParser(query):
     jsonData = json.loads(content)
     # Processing main body of data
     totalItems = int(jsonData['totalItems'])
+    if not 'items' in jsonData:
+        return
     items = jsonData['items']
     for item in items:
         book = {}
@@ -158,6 +160,8 @@ def relatedBookCrawler(query):
     jsonData = json.loads(content)
     # Process the json file
     totalItems = int(jsonData['totalItems'])
+    if not 'items' in jsonData:
+        return
     items = jsonData['items']
     for item in items:
         book = {}

@@ -71,7 +71,10 @@ class BookItem(models.Model):
     categories = models.CharField(max_length=128)
 
     def __unicode__(self):
-        return self.title
+        # return self.title
+        return self.bookid+" "+self.title+" "+self.authors+" "+self.setLink+" "\
+               +self.publishedDate+" "+self.imageLink+" "+self.textSnippet+" "\
+               +self.description+" "+self.webReaderLink+" "+self.categories
 
 # Book
 # Once clicked

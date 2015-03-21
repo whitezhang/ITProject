@@ -152,10 +152,12 @@ def gotoBook(request):
         book = ast.literal_eval(request.POST['book'])
         if request.user.is_authenticated() == True:
             # print request.user.username
-            daoSaveBookInQuery(book, request.POST['queryid'])
-        # Redirect to another page
-        # print request
-        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s&queryid=%s' % (book['id'], book['title'], book['authors'], book['publishedDate'], request.POST['queryid']))
+            if 'queryid' in request.POST['queryid']:
+                daoSaveBookInQuery(book, request.POST['queryid'])
+            # Redirect to another page
+            # print request
+                return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s&queryid=%s' % (book['id'], book['title'], book['authors'], book['publishedDate'], request.POST['queryid']))
+        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
     else:
         daoSaveBookReview(request.GET['id'], request.GET['title'])
         return HttpResponseRedirect('/searchtool/book?id=%s&title=%s' % (request.GET['id'], request.GET['title']))
@@ -244,7 +246,19 @@ def showTopic(request):
         # item['title'] = b.title
         # item['webReaderLink'] = b.webReaderLink
         # item['image'] = b.imageLink
-        book.append(b)
+        tmpBook = {}
+        tmpBook['id'] = b.bookid
+        tmpBook['title'] = b.title
+        tmpBook['authors'] = b.authors
+        tmpBook['setLink'] = b.setLink
+        tmpBook['publishedDate'] = b.publishedDate
+        tmpBook['imageLink'] = b.imageLink
+        tmpBook['textSnippet'] = b.textSnippet
+        tmpBook['description'] = b.description
+        tmpBook['webReaderLink'] = b.webReaderLink
+        tmpBook['categories'] = b.categories
+        book.append(tmpBook)
+    # print book
     topicInfo = {}
     topicInfo['id'] = topic.id
     topicInfo['date'] = topic.date
