@@ -22,6 +22,7 @@
 <script type="text/javascript" src="{% static 'js/jquery.msg.js' %}"></script>
 <script language="JavaScript" type="text/JavaScript">
     $.msg({ content: 'Topic has been created'});
+
 </script>
 <script type="text/javascript" charset="utf-8">
       // google analytics
@@ -34,6 +35,7 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+
 </script>
 {% endif %}
 
@@ -59,22 +61,28 @@
 </table>
 
 <div class="pageBar">
-<ul class="pagination pagination-sm">
-  <li class="disabled"><a href="#">«</a></li>
+    <ul class="pagination pagination-sm">
+        {% if cur_page == 1%}
+        <li class="disabled"><a href="#">«</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{cur_page|add:'-1'}}">«</a></li>
+        {% endif %}
+
         {% for info in page_info %}
-            {% if info == cur_page %}
-            <li class="active"><a href="/searchtool/topic?page={{cur_page}}">{{cur_page}}</a></li>
-            {% else %}
-            <li><a href="/searchtool/alltopics?page={{info}}">{{info}}</a></li>
-            {% endif %}
+        {% if info == cur_page %}
+        <li class="active"><a href="/searchtool/topic?page={{cur_page}}">{{cur_page}}</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{info}}">{{info}}</a></li>
+        {% endif %}
         {% endfor %}
 
-    {% if num_pages > 5 %}
-        <li><a href="#">Next 5 Pages»</a></li>
-    {% else %}
-        <li><a href="#">»</a></li>
-    {% endif %}
-</ul>
+        {% if cur_page == num_pages %}
+        <li class="disabled"><a href="#">»</a></li>
+        {% else %}
+        <li><a href="/searchtool/alltopics?page={{cur_page|add:'1'}}">»</a></li>
+        {% endif %}
+
+    </ul>
 </div>
 
 {% endblock %}
