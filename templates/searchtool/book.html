@@ -63,13 +63,9 @@
             document.getElementById("jRate").setAttribute("id", "jRateReadOnly");
          });
      };
-
-
-
-
-
-
-
+    function submitForm() {
+        document.getElementById("webReaderLink").submit();
+    };
 
 </script>
 <script src="{% static 'js/jRate.js' %}" type="text/javascript"></script>
@@ -113,8 +109,8 @@
 
             <div class="ca-content-text" align="left">&nbsp;&nbsp;&nbsp;&nbsp;{{ book.description }}</div>
         </div>
-        <h1 class="realted-books">Related Books</h1>
 
+        <h1 class="realted-books">Related Books</h1>
         <div id="ca-container" class="ca-container">
             <div class="ca-wrapper">
                 {% if related_book %}
@@ -122,7 +118,13 @@
                 <div class="ca-item">
                     <div class="ca-item-main">
                         <div><img class="standard-img" src="{{ book.image }}"/></div>
-                        <h4>{{ book.title }}</h4>
+                        <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
+                            {% csrf_token %}
+                            <input type="hidden" name="queryid" value="{{ queryid }}"/>
+                            <input type="hidden" name="book" value="{{ book }}"/>
+                            <a class="linkButton" onclick="submitForm()"><h4>{{ book.title }}</h4></a>
+                            <!--<input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>-->
+                        </form>
                         <a href="#" class="ca-more">more...</a>
                     </div>
                     <div class="ca-content-wrapper">
@@ -133,9 +135,6 @@
                             <div class="ca-content-text">
                                 {{ book.description }}
                             </div>
-                            <ul>
-                                <li><a href="#">Collect</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>

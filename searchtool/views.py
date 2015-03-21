@@ -103,7 +103,7 @@ def gotoBook(request):
             daoSaveBookInQuery(book, request.POST['queryid'])
         # Redirect to another page
         # print request
-        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
+        return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s&queryid=%s' % (book['id'], book['title'], book['authors'], book['publishedDate'], request.POST['queryid']))
     else:
         daoSaveBookReview(request.GET['id'], request.GET['title'])
         return HttpResponseRedirect('/searchtool/book?id=%s&title=%s' % (request.GET['id'], request.GET['title']))
@@ -116,6 +116,10 @@ def showBook(request):
     book['id'] = request.GET['id']
     book['title'] = request.GET['title']
     bookItem = daoGetBookByID(book['id'])
+
+    queryid = ''
+    if 'queryid' in request.GET:
+        queryid = request.GET['queryid']
 
     if 'authors' in request.GET and 'publishedDate' in request.GET:
         book['authors'] = request.GET['authors'].encode('utf-8')
@@ -144,7 +148,7 @@ def showBook(request):
     # print book['isCollected']
     # book['isCollected'] = request.session
     # print book
-    return render(request, 'searchtool/book.html', {'book': book, 'related_book': relatedBook})
+    return render(request, 'searchtool/book.html', {'book': book, 'related_book': relatedBook, 'queryid': queryid})
 
 def rateBook(request):
     daoSaveRates(request.GET['bookid'], request.GET['rating'], request.user.username)
