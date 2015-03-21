@@ -36,12 +36,12 @@
                 {% else %}
                 <form id="login" class="navbar-form navbar-left" method="post" action="/searchtool/index/">
                     {% csrf_token %}
-                    Username: <input type="text" name="username" value="" size="25"/>
+                    Username:<input type="text" name="username" value="" size="25"/><br>
                     Password: <input type="password" name="password" value="" size="25"/>
-                    <input class="btn btn-default" type="submit" name="login" value="Login"/>
+                    <input class="btn btn-default btn-small" type="submit" name="login" value="Login"/>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/searchtool/register">Register</a></li>
+                    <li><a class="index-reg" href="/searchtool/register">Register</a></li>
                 </ul>
                 <!-- use JavaScript to replace-->
                 {% endif%}

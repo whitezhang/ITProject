@@ -176,7 +176,8 @@ def createTopic(request):
     topicTitle = request.POST['topictitle']
     print bookidList, topicTitle
     daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
-    return HttpResponse(True)
+    topicList = daoGetAllTopic()
+    return render(request, 'searchtool/alltopics.html', {'topic_list': topicList, 'created': 'true', 'topic_title': topicTitle})
 
 # show topic according to the topic id
 def showTopic(request):

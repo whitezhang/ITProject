@@ -376,6 +376,14 @@ Index
     background-color: black;
 }
 
+.btn-small {
+    width: 80px;
+}
+
+.index-reg {
+    margin-top: 28px;
+}
+
 footer {
     text-align: center;
     bottom: 0px;

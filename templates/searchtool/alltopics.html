@@ -16,6 +16,27 @@
 
 <!--block main_content-->
 {% block main_content %}
+{% if created %}
+<link media="screen" href="{% static 'css/jquery.msg.css' %}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{% static 'js/jquery.center.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.msg.js' %}"></script>
+<script language="JavaScript" type="text/JavaScript">
+    $.msg();
+</script>
+<script type="text/javascript" charset="utf-8">
+      // google analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20960410-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+</script>
+{% endif %}
+
 <table class="table table-striped table-hover topic-title">
     <thead>
     <tr>
