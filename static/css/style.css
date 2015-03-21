@@ -136,11 +136,11 @@
 	overflow:hidden;
 }
 .ca-content-text{
-	font-size: 16px;
+	font-size: 14px;
 	font-style: italic;
 	font-family: "Georgia","Times New Roman",serif;
-	margin:10px 15px;
-	padding:10px 20px;
+	margin:1px 10px;
+	padding:1px 10px;
 	line-height:24px;
 }
 .ca-content-text p{

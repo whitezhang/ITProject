@@ -267,6 +267,10 @@ p-description {
     margin-right: auto;
 }
 
+#topic-container {
+    width: 1050px;
+}
+
 .topic-title {
     width: 85%;
     margin-top: 10px;
