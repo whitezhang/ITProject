@@ -124,6 +124,7 @@ class BookCart(models.Model):
     categories = models.CharField(max_length=128)
 
     user = models.ForeignKey(User)
+    # Discarded
     topic = models.ForeignKey(Topic, blank=True, null=True)
 
     def __unicode__(self):
