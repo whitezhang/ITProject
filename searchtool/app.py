@@ -3,14 +3,17 @@ import urllib2
 import json
 import re
 import random
+from dao import daoGetCategoriesByUser
 
 # Alchemy API
-def taxonomyDecoder(bookInfo):
+def taxonomyDecoder(username):
     taxList = []
-    bookInfo = ["Computer", "Java", "C%20program"]
+    categories = daoGetCategoriesByUser(username)
+    # bookInfo = ["Computer", "Java", "C%20program"]
     AlchemyKey = "3f07faf2bf9dc29f4a0d40072dfc09e6e3e2fbd9"
-    for info in bookInfo:
+    for info in categories:
         url = "http://access.alchemyapi.com/calls/text/TextGetRankedTaxonomy?apikey="+AlchemyKey+"&outputMode=json&text="+info
+        print url
         req = urllib2.Request(url=url)
         f = urllib2.urlopen(req)
         content = f.read()
@@ -36,9 +39,9 @@ def getNodes(index, name, links):
         jsonNode['children'] = [getNodes(index+random.randint(1, 10000), child, links) for child in children]
     return jsonNode
 
-def taxonomyGenerator(query):
+def taxonomyGenerator(username):
     links = []
-    taxList = taxonomyDecoder(query)
+    taxList = taxonomyDecoder(username)
     for taxonomy in taxList:
         # taxonomy = '/technology and computing/hardware/computer'
         tax = taxonomy.encode('utf-8').split('/')
@@ -50,12 +53,12 @@ def taxonomyGenerator(query):
             tmpTaxonomy = ''
             for word in ta:
                 maxLen = max(len(word), maxLen)
-            print maxLen
+            # print maxLen
             for word in ta:
                 tmpTaxonomy += '&nbsp;'*((maxLen-len(word))/2+2)+word+'<br>'
-            print tmpTaxonomy
+            # print tmpTaxonomy
             tax[index] = tmpTaxonomy
-        print tax
+        # print tax
         for index in range(len(tax)-2):
             links.append((tax[index+1], tax[index+2]))
     # Remove the duplicated item
@@ -67,9 +70,6 @@ def taxonomyGenerator(query):
         uniqueLinks.append(('Me', node))
     ontologyJSON = getNodes(0, 'Me', uniqueLinks)
     return ontologyJSON
-
-
-
 
 # Google Book API
 def converter(text):
@@ -92,7 +92,6 @@ def bookJSONParser(query):
     for item in items:
         book = {}
         book['id'] = item['id']
-        print book['id']
         book['setLink'] = 'google.com'
 
         volumeInfo = item['volumeInfo']
@@ -166,7 +165,6 @@ def relatedBookCrawler(query):
     for item in items:
         book = {}
         book['id'] = item['id']
-        print book['id']
         book['setLink'] = 'google.com'
 
         volumeInfo = item['volumeInfo']

@@ -33,6 +33,21 @@ def daoSaveBookReview(bookid, title):
         br[0].views += 1
         br[0].save()
 
+def daoGetCategoriesByUser(username):
+    u = User.objects.get(username=username)
+    t = Topic.objects.filter(user=u)
+    # t = Topic.objects.all()
+    # print "len",len(t)
+    categories = []
+    index = 0
+    for et in t:
+        index += 1
+        bk = et.book.all()
+        for book in bk:
+            categories.append('The%20book%20name%20is%20'+book.categories.encode('utf-8')[2:-2].replace(' ','%20'))
+    print categories
+    return categories
+
 # Save query to user
 # @return query
 def daoSaveQueryToUser(query, username):
@@ -59,8 +74,6 @@ def daoBookIsCollected(bookid, username):
 def daoCheckRating(bookid, username):
     u = User.objects.get(username=username)
     b = BookRating.objects.filter(bookid=bookid, user=u)
-    print bookid, u
-    print b
     # Has not rated this book
     if len(b) == 0:
         return -1
@@ -134,10 +147,10 @@ def daoGetAllCategories():
             continue
         if value in count_value_map:
             count_value_map[value] += 1
-            print count_value_map
+            # print count_value_map
         else:
             count_value_map[value] = 1
-            print count_value_map
+            # print count_value_map
     ret_list = []
     for item in collections.Counter(count_value_map).most_common(10):
         # Split method needs test

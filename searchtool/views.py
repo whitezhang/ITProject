@@ -64,14 +64,16 @@ def register(request):
             {'user_form': user_form, 'registered': registered} )
 
 def profile(request):
-    ontologyJSON = taxonomyGenerator('test')
     if 'ouser' in request.GET:
         u = request.GET['ouser']
         topicList = daoGetTopicByUser(request.GET['ouser'])
+        # ontologyJSON = taxonomyGenerator(request.GET['ouser'])
     else:
         u = request.user.username
         topicList = daoGetTopicByUser(request.user.username)
+        # ontologyJSON = taxonomyGenerator(request.user.username)
     # ontologyJSON = '{id:190,name:"PearlJam",children:[{id:84,name:"PearlJam&amp;CypressHill",children:[{id:82,name:"CypressHill",children:[]}]},],}'
+    ontologyJSON = "{'children': [{'children': [{'children': [{'id': 27456, 'name': 'comics'}], 'id': 17777, 'name': '&nbsp;&nbsp;&nbsp;comics<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and<br>&nbsp;&nbsp;animation<br>'}, {'id': 16804, 'name': 'books and literature'}], 'id': 9041, 'name': '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;art<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and<br>&nbsp;&nbsp;entertainment<br>'}], 'id': 0, 'name': 'Me'}"
     return render(request, 'searchtool/profile.html', {'ontologyJSON': ontologyJSON, 'topic_list': topicList, 'name': u})
 
 def allTopics(request):
@@ -232,7 +234,7 @@ def addTopic(request):
 def createTopic(request):
     bookidList = request.POST.getlist('bookid')
     topicTitle = request.POST['topictitle']
-    print bookidList, topicTitle
+    # print bookidList, topicTitle
     daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
     topicList = daoGetAllTopic()
     return render(request, 'searchtool/alltopics.html', {'topic_list': topicList, 'created': 'true', 'topic_title': topicTitle})
