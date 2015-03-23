@@ -154,7 +154,7 @@ def gotoBook(request):
         book = ast.literal_eval(request.POST['book'])
         if request.user.is_authenticated() == True:
             # print request.user.username
-            if 'queryid' in request.POST['queryid']:
+            if 'queryid' in request.POST:
                 daoSaveBookInQuery(book, request.POST['queryid'])
             # Redirect to another page
             # print request
