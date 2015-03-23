@@ -156,7 +156,10 @@ def gotoBook(request):
             # print request.user.username
             if not 'queryid' in request.POST:
                 daoSaveBookItem(book)
-                # daoSaveBookInQuery(book, request.POST['queryid'])
+            elif request.POST['queryid'] == '':
+                daoSaveBookItem(book)
+            else:
+                daoSaveBookInQuery(book, request.POST['queryid'])
             # Redirect to another page
             # print request
                 return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
