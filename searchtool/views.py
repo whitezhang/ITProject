@@ -8,7 +8,7 @@ from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookIn
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
     daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID, daoGetReviewedBook, \
-    daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs
+    daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs, daoSaveBookItem
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser, relatedBookCrawler, taxonomyGenerator
@@ -38,7 +38,7 @@ def index(request):
                 else:
                     return HttpResponse("You have not active your account")
             else:
-                return HttpResponse("Invalid")
+                return render(request, "searchtool/error.html", {'error_msg': 'Wrong username or password'})
         else:
             return render(request, 'searchtool/index.html', {'popular_books': popularBooks, 'categories': categories})
 
@@ -149,16 +149,17 @@ def search(request):
 
 def gotoBook(request):
     if request.user.is_authenticated() == False:
-        return render(request, 'searchtool/error.html')
+        return render(request, 'searchtool/error.html', {'error_msg': 'Please login first. Now go to home page'})
     if 'book' in request.POST:
         book = ast.literal_eval(request.POST['book'])
         if request.user.is_authenticated() == True:
             # print request.user.username
-            if 'queryid' in request.POST:
-                daoSaveBookInQuery(book, request.POST['queryid'])
+            if not 'queryid' in request.POST:
+                daoSaveBookItem(book)
+                # daoSaveBookInQuery(book, request.POST['queryid'])
             # Redirect to another page
             # print request
-                return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s&queryid=%s' % (book['id'], book['title'], book['authors'], book['publishedDate'], request.POST['queryid']))
+                return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
         return HttpResponseRedirect('/searchtool/book?id=%s&title=%s&authors=%s&publishedDate=%s' % (book['id'], book['title'], book['authors'], book['publishedDate']))
     else:
         daoSaveBookReview(request.GET['id'], request.GET['title'])

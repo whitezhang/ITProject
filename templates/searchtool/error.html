@@ -10,10 +10,13 @@
     <script type="text/javascript" src="{% static 'js/jquery.center.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.msg.min.js' %}"></script>
     <script type="text/javascript" charset="utf-8">
-          $.msg({content: 'Please Login First. Now Redirect to Home Page'});
+        $( document ).ready(function() {
+          var errorMsg = document.getElementById('errorMsg').innerHTML;
+          $.msg({content: errorMsg});
           setTimeout(function(){
             window.location="http://localhost:8000/searchtool/index/";
             }, 2300);
+        });
     </script>
     <script type="text/javascript" charset="utf-8">
       // google analytics
@@ -27,5 +30,6 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+  <div id="errorMsg" style="display:none">{{error_msg}}</div>
   </body>
 </html>

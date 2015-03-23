@@ -120,7 +120,6 @@
                         <div><img class="standard-img" src="{{ book.image }}"/></div>
                         <form id="webReaderLink" method="post" action="/searchtool/gotoBook/">
                             {% csrf_token %}
-                            <input type="hidden" name="queryid" value="{{ queryid }}"/>
                             <input type="hidden" name="book" value="{{ book }}"/>
                             <a class="linkButton" onclick="submitForm()"><h4>{{ book.title }}</h4></a>
                             <!--<input class="linkButton" type="submit" name="title" value="{{ book.title }}"/>-->

@@ -13,15 +13,28 @@ def daoGetReviewedBookByIDs(IDs):
 def daoGetIDsByCategory(category):
     return BookItem.objects.values_list('bookid', flat=True).filter(categories__icontains=category)
 
+def daoSaveBookItem(book):
+    try:
+        b = BookItem.objects.get(bookid=book['id'])
+    except ObjectDoesNotExist:
+        b = BookItem.objects.get_or_create(bookid=book['id'], title=book['title'], authors=book['authors'], setLink=book['setLink'],
+                publishedDate=book['publishedDate'], imageLink=book['image'], textSnippet=book['textSnippet'],
+                webReaderLink=book['webReaderLink'], description=book['description'], categories=book['categories'])
+        if b[1] == False:
+            b[0].save()
+        daoSaveBookReview(book['id'], book['title'])
+
 def daoSaveBookInQuery(book, queryid):
-    # print queryid
-    q = Query.objects.get(id=queryid)
+    print queryid
+    q = Query.objects.get(id=int(queryid))
     b = BookItem.objects.get_or_create(bookid=book['id'], title=book['title'], authors=book['authors'], setLink=book['setLink'],
              publishedDate=book['publishedDate'], imageLink=book['image'], textSnippet=book['textSnippet'],
              webReaderLink=book['webReaderLink'], description=book['description'], categories=book['categories'])
-    b[0].save()
+    if b[1] == False:
+        b[0].save()
     h = History.objects.get_or_create(bookid=book['id'], query=q)
-    h[0].save()
+    if h[1] == False:
+        h[0].save()
     # Save in the BookReview
     daoSaveBookReview(book['id'], book['title'])
 
