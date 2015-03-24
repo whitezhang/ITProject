@@ -46,6 +46,7 @@ def index(request):
 # user UserForm to register
 def register(request):
     registered = False
+    form_error = ''
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
@@ -55,13 +56,14 @@ def register(request):
 
             registered = True
         else:
+            form_error = 'User with this Username already exists.'
             print user_form.errors
     else:
         user_form = UserForm()
     # Render the template depending on the context.
     return render(request,
             'searchtool/register.html',
-            {'user_form': user_form, 'registered': registered} )
+            {'user_form': user_form, 'registered': registered, 'form_error': form_error} )
 
 def profile(request):
     if 'ouser' in request.GET:
