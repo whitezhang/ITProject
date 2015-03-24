@@ -48,9 +48,9 @@
 
         {% for info in page_info %}
         {% if info == cur_page %}
-        <li class="active"><a href="/searchtool/topic?page={{cur_page}}">{{cur_page}}</a></li>
+        <li class="active"><a href="/searchtool/mytopics?page={{cur_page}}">{{cur_page}}</a></li>
         {% else %}
-        <li><a href="/searchtool/alltopics?page={{info}}">{{info}}</a></li>
+        <li><a href="/searchtool/mytopics?page={{info}}">{{info}}</a></li>
         {% endif %}
         {% endfor %}
 
