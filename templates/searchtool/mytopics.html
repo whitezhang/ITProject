@@ -2,6 +2,19 @@
 
 {% load staticfiles %}
 
+{% block head %}
+<script type="text/javascript">
+    function removeTopic(topicid) {
+        $(document).on('click', '#removeTopic', function() {
+            $(this).closest('tr').remove();
+            $.get('/searchtool/removeTopic', {topicid: topicid}, function() {
+
+            });;
+        });
+    }
+</script>
+{% endblock %}
+
 {% block tab %}
 <div class="content-mid">
     <ul class="nav nav-tabs">
@@ -32,6 +45,9 @@
         <td class="th-topic"><a href="/searchtool/topic?id={{ topic.id }}">{{ topic.topic }}</a></td>
         <td><a href="/searchtool/profile?ouser={{topic.user.username}}">{{ topic.user.username }}</a></td>
         <td class="th-date">{{ topic.date }}</td>
+
+            <td><a id="removeTopic" onclick="javascript:removeTopic('{{ topic.id }}')"><h4>Remove</h4></a></td>
+
     </tr>
     {% endfor %}
     {% endif %}
@@ -59,6 +75,7 @@
         {% else %}
         <li><a href="/searchtool/alltopics?page={{cur_page|add:'1'}}">»</a></li>
         {% endif %}
+
 
     </ul>
 </div>

@@ -8,7 +8,8 @@ from searchtool.dao import daoSaveBookInQuery, daoSaveQueryToUser, daoSaveBookIn
     daoBookIsLiked, daoBookIsCollected, daoSaveBookCart, daoSaveRates, \
     daoCheckRating, daoGetBookCartList, daoSaveBookInTopic, daoGetBookReviews, daoGetTopicByUser,\
     daoGetAllTopic, daoGetBookByID, daoGetTopicByID, daoRemoveFromCartByID, daoGetReviewedBook, \
-    daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs, daoSaveBookItem
+    daoGetAllCategories, daoSaveBookReview, daoGetIDsByCategory, daoGetReviewedBookByIDs, daoSaveBookItem, \
+    daoRemoveTopic
 from searchtool.models import BookCart
 from searchtool.models import Query, User
 from searchtool.app import bookJSONParser, relatedBookCrawler, taxonomyGenerator
@@ -99,7 +100,7 @@ def allTopics(request):
     if curPage <= 2:
         pageInfo = range(1,numOfPages+1)
     elif curPage+1 >= numOfPages:
-        pageInfo = range(numOfPages-4, numOfPages+1)
+        pageInfo = range(numOfPages-3, numOfPages+1)
     else:
         pageInfo = range(curPage-2, curPage+3)
     return render(request, 'searchtool/alltopics.html', {'topic_list': topicList, 'cur_page': curPage, 'num_pages':numOfPages, 'page_info': pageInfo})
@@ -125,7 +126,7 @@ def myTopics(request):
     if curPage <= 2:
         pageInfo = range(1,numOfPages+1)
     elif curPage+1 >= numOfPages:
-        pageInfo = range(numOfPages-4, numOfPages+1)
+        pageInfo = range(numOfPages-3, numOfPages+1)
     else:
         pageInfo = range(curPage-2, curPage+3)
     # return render(request, 'searchtool/mytopics.html', {'topic_list': topicList})
@@ -243,7 +244,8 @@ def createTopic(request):
     # print bookidList, topicTitle
     daoSaveBookInTopic(bookidList, request.user.username, topicTitle)
     topicList = daoGetAllTopic()
-    return render(request, 'searchtool/alltopics.html', {'topic_list': topicList, 'created': 'true', 'topic_title': topicTitle})
+    # return render(request, 'searchtool/alltopics.html', {'topic_list': topicList, 'created': 'true', 'topic_title': topicTitle})
+    return HttpResponseRedirect('/searchtool/alltopics')
 
 # show topic according to the topic id
 def showTopic(request):
@@ -277,4 +279,8 @@ def showTopic(request):
 
 def removeFromCart(request):
     daoRemoveFromCartByID(request.GET['bookid'], request.user.username)
+    return HttpResponse(True)
+
+def removeTopic(request):
+    daoRemoveTopic(request.GET['topicid'], request.user.username)
     return HttpResponse(True)

@@ -143,6 +143,9 @@ def daoGetTopicByUser(username):
     topicList = Topic.objects.filter(user=u)
     return topicList
 
+def daoRemoveTopic(topicid, username):
+    u = User.objects.get(username=username)
+    Topic.objects.get(id=topicid, user=u).delete()
 
 # Get Categories
 # @return 10 most popular categories
