@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bcb0b117-e1cd-4f50-ae77-01ba98ba8ffa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/searchtool/register.html" afterPath="$PROJECT_DIR$/templates/searchtool/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/views.py" afterPath="$PROJECT_DIR$/searchtool/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/app.py" afterPath="$PROJECT_DIR$/searchtool/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/searchtool/dao.py" afterPath="$PROJECT_DIR$/searchtool/dao.py" />
     </list>
     <ignored path="searchWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,13 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/searchtool/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3330">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.25267994" vertical-offset="1050" max-vertical-offset="3345">
+              <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
               <folding>
                 <element signature="e#10#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dao.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
+              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+              <folding>
+                <element signature="e#2725#2846#0" expanded="false" />
+                <element signature="e#3544#3791#0" expanded="false" />
+                <element signature="e#4323#4423#0" expanded="false" />
+                <element signature="e#4555#4830#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,7 +58,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/searchtool/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="435">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
               <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
@@ -64,21 +78,9 @@
       <file leaf-file-name="populate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/populate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="540">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
               <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/searchtool/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1620">
-              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-              <folding>
-                <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#head#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -86,7 +88,7 @@
       <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="960">
+            <state vertical-scroll-proportion="-25.625" vertical-offset="0" max-vertical-offset="960">
               <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding />
             </state>
@@ -96,18 +98,18 @@
       <file leaf-file-name="alltopics.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.25" vertical-offset="738" max-vertical-offset="1470">
+            <state vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1470">
               <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/searchtool/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66820276" vertical-offset="540" max-vertical-offset="4290">
-              <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4290">
+              <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -118,7 +120,7 @@
       <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3333335" vertical-offset="316" max-vertical-offset="1080">
+            <state vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="1080">
               <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding />
             </state>
@@ -128,7 +130,7 @@
       <file leaf-file-name="mytopics.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/searchtool/mytopics.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.708333" vertical-offset="472" max-vertical-offset="1110">
+            <state vertical-scroll-proportion="0.0" vertical-offset="472" max-vertical-offset="1110">
               <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
@@ -170,11 +172,9 @@
         <option value="$PROJECT_DIR$/static/css/base.css" />
         <option value="$PROJECT_DIR$/templates/searchtool/addTopic.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/topic.html" />
-        <option value="$PROJECT_DIR$/searchtool/app.py" />
         <option value="$PROJECT_DIR$/searchtool/models.py" />
         <option value="$PROJECT_DIR$/searchtool/urls.py" />
         <option value="$PROJECT_DIR$/templates/searchtool/index.html" />
-        <option value="$PROJECT_DIR$/searchtool/dao.py" />
         <option value="$PROJECT_DIR$/templates/searchtool/error.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/book.html" />
         <option value="$PROJECT_DIR$/templates/searchtool/base.html" />
@@ -184,10 +184,13 @@
         <option value="$PROJECT_DIR$/templates/searchtool/mytopics.html" />
         <option value="$PROJECT_DIR$/searchtool/views.py" />
         <option value="$PROJECT_DIR$/templates/searchtool/register.html" />
+        <option value="$PROJECT_DIR$/searchtool/dao.py" />
+        <option value="$PROJECT_DIR$/searchtool/app.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
@@ -215,6 +218,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -331,7 +335,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -521,7 +524,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <frame x="1" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -536,13 +539,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -803,19 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#2743#2864#0" expanded="false" />
-            <element signature="e#3562#3809#0" expanded="false" />
-            <element signature="e#4341#4441#0" expanded="false" />
-            <element signature="e#4573#4848#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/addTopic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.43540668" vertical-offset="423" max-vertical-offset="1050">
@@ -841,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.75" vertical-offset="399" max-vertical-offset="1050">
           <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,16 +839,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1620">
           <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
           <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#head#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="960">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,32 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5529954" vertical-offset="0" max-vertical-offset="840">
           <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/populate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="e#10#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -906,8 +861,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/searchtool/mytopics.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.708333" vertical-offset="472" max-vertical-offset="1110">
+        <state vertical-scroll-proportion="0.0" vertical-offset="472" max-vertical-offset="1110">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="1080">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1470">
+          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchtool/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="4290">
+          <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/searchtool/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.625" vertical-offset="0" max-vertical-offset="960">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/populate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -920,28 +917,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/register.html">
+    <entry file="file://$PROJECT_DIR$/searchtool/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335" vertical-offset="316" max-vertical-offset="1080">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/searchtool/alltopics.html">
+    <entry file="file://$PROJECT_DIR$/searchtool/dao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.25" vertical-offset="738" max-vertical-offset="1470">
-          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchtool/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66820276" vertical-offset="540" max-vertical-offset="4290">
-          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#2725#2846#0" expanded="false" />
+            <element signature="e#3544#3791#0" expanded="false" />
+            <element signature="e#4323#4423#0" expanded="false" />
+            <element signature="e#4555#4830#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchtool/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25267994" vertical-offset="1050" max-vertical-offset="3345">
+          <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+          <folding>
+            <element signature="e#10#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

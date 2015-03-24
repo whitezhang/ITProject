@@ -25,7 +25,6 @@ def daoSaveBookItem(book):
         daoSaveBookReview(book['id'], book['title'])
 
 def daoSaveBookInQuery(book, queryid):
-    print queryid
     q = Query.objects.get(id=int(queryid))
     b = BookItem.objects.get_or_create(bookid=book['id'], title=book['title'], authors=book['authors'], setLink=book['setLink'],
              publishedDate=book['publishedDate'], imageLink=book['image'], textSnippet=book['textSnippet'],

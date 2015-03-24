@@ -79,6 +79,7 @@ def converter(text):
 
 def bookJSONParser(query):
     book_list = []
+    query = query.replace(' ', '%20')
     url = "https://www.googleapis.com/books/v1/volumes?q="+query
     req = urllib2.Request(url=url)
     f = urllib2.urlopen(req)
